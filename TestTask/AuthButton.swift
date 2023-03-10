@@ -28,10 +28,10 @@ class AuthButton: UIButton {
     init(type: ButtonType, title: String?) {
         self.type = type
         super.init(frame: .zero)
+        configure()
         if let title = title {
             setTitle(title, for: .normal)
         }
-        configure()
     }
 
     required init?(coder: NSCoder) {

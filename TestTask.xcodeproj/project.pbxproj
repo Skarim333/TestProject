@@ -15,6 +15,11 @@
 		5D78FAC829BB258D0006848E /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D78FAC729BB258D0006848E /* AuthField.swift */; };
 		5D78FACA29BB26E30006848E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D78FAC929BB26E30006848E /* UIView + Extension.swift */; };
 		5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D78FACB29BB2F580006848E /* AuthButton.swift */; };
+		5D78FACE29BB38070006848E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D78FACD29BB38070006848E /* LogInViewController.swift */; };
+		5D7CC8B429BB55DF00ABCD61 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */; };
+		5D7CC8B629BB56C700ABCD61 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B529BB56C700ABCD61 /* DataBase.swift */; };
+		5D7CC8B829BB56ED00ABCD61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B729BB56ED00ABCD61 /* User.swift */; };
+		5D7CC8C029BB669D00ABCD61 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		5D78FAC729BB258D0006848E /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		5D78FAC929BB26E30006848E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		5D78FACB29BB2F580006848E /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		5D78FACD29BB38070006848E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		5D7CC8B529BB56C700ABCD61 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		5D7CC8B729BB56ED00ABCD61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +72,36 @@
 			children = (
 				5D78FAB129BB12470006848E /* AppDelegate.swift */,
 				5D78FAB329BB12470006848E /* SceneDelegate.swift */,
+				5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */,
+				5D7CC8B529BB56C700ABCD61 /* DataBase.swift */,
+				5D7CC8B929BB56F500ABCD61 /* Model */,
 				5D78FAC529BB248B0006848E /* SignInViewController.swift */,
+				5D78FACD29BB38070006848E /* LogInViewController.swift */,
 				5D78FAC729BB258D0006848E /* AuthField.swift */,
 				5D78FACB29BB2F580006848E /* AuthButton.swift */,
-				5D78FAC929BB26E30006848E /* UIView + Extension.swift */,
+				5D7CC8BE29BB65D500ABCD61 /* Extension */,
 				5D78FABA29BB124C0006848E /* Assets.xcassets */,
 				5D78FABC29BB124C0006848E /* LaunchScreen.storyboard */,
 				5D78FABF29BB124C0006848E /* Info.plist */,
 			);
 			path = TestTask;
+			sourceTree = "<group>";
+		};
+		5D7CC8B929BB56F500ABCD61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D7CC8B729BB56ED00ABCD61 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D7CC8BE29BB65D500ABCD61 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5D78FAC929BB26E30006848E /* UIView + Extension.swift */,
+				5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,10 +175,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D78FAC829BB258D0006848E /* AuthField.swift in Sources */,
+				5D7CC8B429BB55DF00ABCD61 /* AuthManager.swift in Sources */,
 				5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */,
 				5D78FAB229BB12470006848E /* AppDelegate.swift in Sources */,
+				5D7CC8B629BB56C700ABCD61 /* DataBase.swift in Sources */,
+				5D7CC8C029BB669D00ABCD61 /* UIImageView + Extensions.swift in Sources */,
 				5D78FAB429BB12470006848E /* SceneDelegate.swift in Sources */,
+				5D78FACE29BB38070006848E /* LogInViewController.swift in Sources */,
 				5D78FACA29BB26E30006848E /* UIView + Extension.swift in Sources */,
+				5D7CC8B829BB56ED00ABCD61 /* User.swift in Sources */,
 				5D78FAC629BB248B0006848E /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
