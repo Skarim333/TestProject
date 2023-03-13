@@ -26,11 +26,26 @@ final class AuthManager {
     enum AuthError: Error {
         case signInFailed
     }
+    
+//     Public
+    public var isSignedIn = false
+    
+    public func logIn(firstName: String, password: String) -> Bool {
+        return DatabaseManager.shared.users.contains { $0.firstName == firstName && $0.password == password }
+        
+    }
+    
+    public func signIn(firstName: String, lastName: String, email: String) {
+        DatabaseManager.shared.saveUser(firstName: firstName, lastName: lastName, email: email, password: "1")
+    }
+    
+    public func signOut() {
+        
+    }
 
-    // Public
-//
-//    /// Represents if user is signed in
+    /// Represents if user is signed in
 //    public var isSignedIn: Bool {
+////        DatabaseManager.shared.users
 //        return Auth.auth().currentUser != nil
 //    }
 //

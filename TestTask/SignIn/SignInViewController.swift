@@ -93,19 +93,23 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapSignIn() {
         didTapKeyboardDone()
+        
+        guard let email = emailField.text,
+              let firstName = firstNameField.text,
+              let lastName = lastNameField.text,
+              !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              !firstName.trimmingCharacters(in: .whitespaces).isEmpty,
+              !lastName.trimmingCharacters(in: .whitespaces).isEmpty &&
+                isValidEmail(email)
+               else {
 
-//        guard let email = emailField.text,
-//              let password = passwordField.text,
-//              !email.trimmingCharacters(in: .whitespaces).isEmpty,
-//              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-//              password.count >= 6 else {
-//
-//            let alert = UIAlertController(title: "Woops", message: "Please enter a valid email and password to sign in.", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-//            present(alert, animated: true)
-//            return
-//        }
-//
+            let alert = UIAlertController(title: "Woops", message: "Please enter a valid data.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        print("SECCESS")
+
 //        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
 //            DispatchQueue.main.async {
 //                switch result {
@@ -132,4 +136,18 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
 //        vc.title = "Create Account"
 //        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func isValidEmail(_ email: String) -> Bool {
+            // Define the regular expression pattern for email validation
+            let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            
+            // Create a regular expression object with the email pattern
+            guard let regex = try? NSRegularExpression(pattern: emailRegex) else {
+                return false
+            }
+            
+            // Match the email against the regular expression pattern
+            let range = NSRange(location: 0, length: email.utf16.count)
+            return regex.firstMatch(in: email, options: [], range: range) != nil
+        }
 }
