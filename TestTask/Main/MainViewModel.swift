@@ -23,6 +23,7 @@ class MainViewModel: MainViewModelProtocol {
     var coordinator: MainCoordinator?
     
     private var didLoadProductData: ((Bool) -> Void)?
+    private var didLoadFlashSaleData: ((Bool) -> Void)?
     
     init(networkManager: NetworkManager) {
         categories = CategoryProduct.allCases
@@ -73,6 +74,7 @@ class MainViewModel: MainViewModelProtocol {
             return
         }
         didLoadProductData?(true)
+        didLoadFlashSaleData?(true)
     }
     func pushDetailView() {
         //        self.coordinator?.startDetailScene()
@@ -115,19 +117,20 @@ extension MainViewModel: LatestTableCellViewModelProtocol {
     }
 }
 
-    //extension MainViewModel: BestSellerTableCellViewModelProtocol {
-    //    var numberOfRowsBestSeller: Int {
-    //        bestSellesModels.count
-    //    }
-    //
-    //    func getBestSellerViewModel(at index: Int) -> BestSellerCollectionCellViewModelProtocol {
-    //        BestSellerCollectionCellViewModel(bestSellesModels[index])
-    //    }
-    //
-    //    var didLoadDataForBestSeller: ((Bool) -> Void)? {
-    //        get { didLoadBestSellerData }
-    //        set { didLoadBestSellerData = newValue }
-    //    }
+extension MainViewModel: FlashSaleTableCellViewModelProtocol {
     
+    var numberOfRowsFlashSale: Int {
+        flashSales.count
+    }
     
+    func getFlashSaleViewModel(at index: Int) -> FlashSaleCollectionCellViewModelProtocol {
+        FlashSaleCollectionCellViewModel(flashSale: flashSales[index], networkManager: networkManager)
+    }
+    
+    var didLoadDataForFlashSale: ((Bool) -> Void)? {
+        get { didLoadFlashSaleData }
+        set { didLoadFlashSaleData = newValue }
+    }
+    
+}
 

@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
                            forCellReuseIdentifier: CategoryTableViewCell.identifier)
         tableview.register(LatestTableViewCell.self,
                            forCellReuseIdentifier: LatestTableViewCell.identifier)
-        tableview.translatesAutoresizingMaskIntoConstraints = false
+        tableview.register(FlashSaleTableViewCell.self,
+                           forCellReuseIdentifier: FlashSaleTableViewCell.identifier)
         return tableview
     }()
     
@@ -43,7 +44,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +57,10 @@ extension MainViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: LatestTableViewCell.identifier, for: indexPath) as! LatestTableViewCell
             cell.viewModel = viewModel as? LatestTableCellViewModelProtocol
             return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: FlashSaleTableViewCell.identifier, for: indexPath) as! FlashSaleTableViewCell
+            cell.viewModel = viewModel as? FlashSaleTableCellViewModelProtocol
+            return cell
         default:
             return tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
         }
@@ -66,8 +71,9 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return tableView.frame.height / 9
-        case 1: return tableView.frame.height / 4
-//        case 2: return BestSellerTableViewCell.SizesCell.calculateHeightTableCell(countItem: 4, widthTable: tableView.frame.width)
+        case 1: return tableView.frame.height / 3
+        case 2: return tableView.frame.height / 3
+//            FlashSaleTableViewCell.SizesCell.calculateHeightTableCell(countItem: 4, widthTable: tableView.frame.width)
         default: return 0
         }
     }

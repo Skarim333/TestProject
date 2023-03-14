@@ -1,28 +1,28 @@
 //
-//  LatestTableViewCell.swift
+//  FlashSaleTableViewCell.swift
 //  TestTask
 //
-//  Created by Карим Садыков on 13.03.2023.
+//  Created by Карим Садыков on 14.03.2023.
 //
 
 import UIKit
 
-protocol LatestTableCellViewModelProtocol: MainViewModelProtocol {
-    var numberOfRowsLatest: Int { get }
+protocol FlashSaleTableCellViewModelProtocol: MainViewModelProtocol {
+    var numberOfRowsFlashSale: Int { get }
     
-    func getLatestViewModel(at index: Int) -> LatestCollectionCellViewModelProtocol
+    func getFlashSaleViewModel(at index: Int) -> FlashSaleCollectionCellViewModelProtocol
     
-    var didLoadDataForLatest: ((Bool) -> Void)? { get set }
+    var didLoadDataForFlashSale: ((Bool) -> Void)? { get set }
 }
 
-class LatestTableViewCell: UITableViewCell {
-    static let identifier = "LatestTableViewCell"
+class FlashSaleTableViewCell: UITableViewCell {
+    static let identifier = "FlashSaleTableViewCell"
     
-    private var items: [Product] = []
+    private var items: [FlashSale] = []
     
-    var viewModel: LatestTableCellViewModelProtocol! {
+    var viewModel: FlashSaleTableCellViewModelProtocol! {
         didSet {
-            viewModel.didLoadDataForLatest = { [weak self] result in
+            viewModel.didLoadDataForFlashSale = { [weak self] result in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     if result {
@@ -40,7 +40,7 @@ class LatestTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collView.register(LatestCollectionViewCell.self, forCellWithReuseIdentifier: LatestCollectionViewCell.identifier)
+        collView.register(FlashSaleCollectionViewCell.self, forCellWithReuseIdentifier: FlashSaleCollectionViewCell.identifier)
         collView.showsHorizontalScrollIndicator = false
         collView.showsVerticalScrollIndicator = false
         return collView
@@ -73,19 +73,19 @@ class LatestTableViewCell: UITableViewCell {
     }
 }
 
-extension LatestTableViewCell: UICollectionViewDataSource {
+extension FlashSaleTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsLatest
+        return viewModel.numberOfRowsFlashSale
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LatestCollectionViewCell.identifier, for: indexPath) as! LatestCollectionViewCell
-        cell.viewModel = viewModel.getLatestViewModel(at: indexPath.row)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlashSaleCollectionViewCell.identifier, for: indexPath) as! FlashSaleCollectionViewCell
+        cell.viewModel = viewModel.getFlashSaleViewModel(at: indexPath.row)
         return cell
     }
 }
 
-extension LatestTableViewCell: UICollectionViewDelegateFlowLayout {
+extension FlashSaleTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         SizesCell.calculateSizeCollectionCell(width: collectionView.frame.width)
     }
@@ -97,7 +97,7 @@ extension LatestTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension LatestTableViewCell {
+extension FlashSaleTableViewCell {
     struct SizesCell {
         static fileprivate let countCellInLine: Int = 2
         static fileprivate let minimumInteritemSpacing: CGFloat = 16

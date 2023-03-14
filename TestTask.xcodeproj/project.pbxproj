@@ -41,6 +41,9 @@
 		5DB03DF529BCB597003BEC44 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DF429BCB597003BEC44 /* LogInCoordinator.swift */; };
 		5DB03DF729BCB5E5003BEC44 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DF629BCB5E5003BEC44 /* MainViewController.swift */; };
 		5DB03DF929BCB607003BEC44 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DF829BCB607003BEC44 /* MainCoordinator.swift */; };
+		5DDBB48E29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDBB48D29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift */; };
+		5DDBB49129C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDBB49029C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift */; };
+		5DDBB49329C09A600047DD67 /* FlashSaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDBB49229C09A600047DD67 /* FlashSaleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		5DB03DF429BCB597003BEC44 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		5DB03DF629BCB5E5003BEC44 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DB03DF829BCB607003BEC44 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5DDBB48D29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleCollectionViewCell.swift; sourceTree = "<group>"; };
+		5DDBB49029C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		5DDBB49229C09A600047DD67 /* FlashSaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +129,6 @@
 				5DB03DFB29BCB93E003BEC44 /* Main */,
 				5D7CC8BE29BB65D500ABCD61 /* Extension */,
 				5D78FABA29BB124C0006848E /* Assets.xcassets */,
-				5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */,
 				5D78FABC29BB124C0006848E /* LaunchScreen.storyboard */,
 				5D78FABF29BB124C0006848E /* Info.plist */,
 			);
@@ -178,6 +183,7 @@
 				5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */,
 				5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */,
 				5D7CC8B529BB56C700ABCD61 /* DatabaseManager.swift */,
+				5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 				5DB03DF829BCB607003BEC44 /* MainCoordinator.swift */,
 				5D7F2A0F29BE45F800793645 /* CategoryCollection */,
 				5D874C5529BF3AB300E62ADA /* LatestCollection */,
+				5DDBB48F29C099F70047DD67 /* FlashSaleCollection */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -229,6 +236,16 @@
 				5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		5DDBB48F29C099F70047DD67 /* FlashSaleCollection */ = {
+			isa = PBXGroup;
+			children = (
+				5DDBB48D29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift */,
+				5DDBB49029C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift */,
+				5DDBB49229C09A600047DD67 /* FlashSaleTableViewCell.swift */,
+			);
+			path = FlashSaleCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +326,7 @@
 				5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */,
 				5D7888DA29BBBBC9007FA886 /* AppCoordinator.swift in Sources */,
 				5DB03DF729BCB5E5003BEC44 /* MainViewController.swift in Sources */,
+				5DDBB49129C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift in Sources */,
 				5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */,
 				5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */,
 				5D78FAB229BB12470006848E /* AppDelegate.swift in Sources */,
@@ -317,7 +335,9 @@
 				5D7B5C9D29BE31BA00FB4050 /* FlashSale.swift in Sources */,
 				5D874C5029BF1E5C00E62ADA /* CategoryCollectionViewCell.swift in Sources */,
 				5D7CC8C029BB669D00ABCD61 /* UIImageView + Extensions.swift in Sources */,
+				5DDBB49329C09A600047DD67 /* FlashSaleTableViewCell.swift in Sources */,
 				5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */,
+				5DDBB48E29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift in Sources */,
 				5DB03DF329BCB584003BEC44 /* SignInCoordinator.swift in Sources */,
 				5DB03DF129BCB529003BEC44 /* TabBarPages.swift in Sources */,
 				5D7F2A1129BE496000793645 /* CategoryCollectionCellViewModel.swift in Sources */,
