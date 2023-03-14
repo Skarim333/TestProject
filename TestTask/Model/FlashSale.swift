@@ -22,4 +22,8 @@ struct FlashSale: Codable {
 
 struct FlashSaleResponse: Codable {
     let flashSale: [FlashSale]
+    
+    private enum CodingKeys: String, CodingKey {
+        case flashSale = "flash_sale"
+    }
 }

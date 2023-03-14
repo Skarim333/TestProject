@@ -13,98 +13,121 @@ protocol MainViewModelProtocol: AnyObject {
 }
 
 class MainViewModel: MainViewModelProtocol {
+    var countAddedProductInCart: String?
+    private let networkManager: NetworkManager
     
-    //
-    //    private let categories: [CategoryProduct]
-    //    private var selectedCategory: CategoryProduct
-    //    private var hotSalesModels: [HomeStore] = []
-    //    private var bestSellesModels: [BestSeller] = []
+    private let categories: [CategoryProduct]
+    private var selectedCategory: CategoryProduct
+    private var latestProducts: [Product] = []
+    private var flashSales: [FlashSale] = []
     var coordinator: MainCoordinator?
-    //
-    //    private var didLoadBestSellerData: ((Bool) -> Void)?
-    //    private var didLoadHotSalesData: ((Bool) -> Void)?
-    //
-    //    init() {
-    //        categories = CategoryProduct.allCases
-    //        selectedCategory = .Phones
-    //        getData()
-    //    }
+    
+    private var didLoadProductData: ((Bool) -> Void)?
+    
+    init(networkManager: NetworkManager) {
+        categories = CategoryProduct.allCases
+        selectedCategory = .Phones
+        self.networkManager = networkManager
+        fetchData()
+    }
     
     var title: String {
         return "Zihuatanejo, Gro"
-        //    }
-        //
-        //    func getData() {
-        //        APICaller.shared.getMain { [weak self] result in
-        //            switch result {
-        //            case .success(let data):
-        //                DispatchQueue.main.async {
-        //                    self?.hotSalesModels = data.homeStore
-        //                    self?.bestSellesModels = data.bestSeller
-        //                    self?.didLoadBestSellerData?(true)
-        //                    self?.didLoadHotSalesData?(true)
-        //                }
-        //            case .failure(let erorr):
-        //                print(erorr.localizedDescription)
-        //            }
-        //        }
-            }
-        
-        func pushDetailView() {
-            //        self.coordinator?.startDetailScene()
-        }
-        //}
-        //
-        //extension MainViewModel: CategoryTableCellViewModelProtocol {
-        //    var numberCategories: Int {
-        //        categories.count
-        //    }
-        //
-        //    func getViewModel(at index: Int) -> CategoryCollectionCellViewModelProtocol {
-        //        let product = categories[index]
-        //        let isSelect = product == selectedCategory
-        //        return CategoryCollectionCellViewModel(product, isSelect: isSelect)
-        //    }
-        //
-        //    var indexSelectedItem: Int {
-        //        return categories.firstIndex(of: selectedCategory) ?? 0
-        //    }
-        //
-        //    func didSelectedItem(at index: Int) {
-        //        let product = categories[index]
-        //        selectedCategory = product
-        //    }
-        //}
-        //
-        //extension MainViewModel: HotSalesTableCellViewModelProtocol {
-        //    var numberOfRowsHotSales: Int {
-        //        hotSalesModels.count
-        //    }
-        //
-        //    func getHotSalesViewModel(at index: Int) -> HotSalesCollectionCellViewModelProtocol {
-        //        HotSalesCollectionCellViewModel(model: hotSalesModels[index])
-        //    }
-        //
-        //    var didLoadDataForHotSales: ((Bool) -> Void)? {
-        //        get { didLoadHotSalesData }
-        //        set { didLoadHotSalesData = newValue }
-        //    }
-        //
-        //}
-        //
-        //extension MainViewModel: BestSellerTableCellViewModelProtocol {
-        //    var numberOfRowsBestSeller: Int {
-        //        bestSellesModels.count
-        //    }
-        //
-        //    func getBestSellerViewModel(at index: Int) -> BestSellerCollectionCellViewModelProtocol {
-        //        BestSellerCollectionCellViewModel(bestSellesModels[index])
-        //    }
-        //
-        //    var didLoadDataForBestSeller: ((Bool) -> Void)? {
-        //        get { didLoadBestSellerData }
-        //        set { didLoadBestSellerData = newValue }
-        //    }
-        
+    }
     
+    private func fetchData() {
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        networkManager.fetchLatestProducts { [weak self] result in
+            switch result {
+            case .success(let products):
+                self?.latestProducts = products
+            case .failure(let error):
+                print("Error fetching latest products: \(error)")
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        networkManager.fetchFlashSales { [weak self] result in
+            switch result {
+            case .success(let sales):
+                self?.flashSales = sales
+            case.failure(let error):
+                print("Error fetching flash sales: \(error)")
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) {
+            self.combineData()
+        }
+    }
+    private func combineData() {
+        if latestProducts.isEmpty {
+            print("Error: latestProducts is empty")
+            return
+        }
+        if flashSales.isEmpty {
+            print("Error: flashSales is empty")
+            return
+        }
+        didLoadProductData?(true)
+    }
+    func pushDetailView() {
+        //        self.coordinator?.startDetailScene()
+    }
 }
+
+extension MainViewModel: CategoryTableCellViewModelProtocol {
+    var numberCategories: Int {
+        categories.count
+    }
+    
+    func getViewModel(at index: Int) -> CategoryCollectionCellViewModelProtocol {
+        let product = categories[index]
+        let isSelect = product == selectedCategory
+        return CategoryCollectionCellViewModel(product, isSelect: isSelect)
+    }
+    
+    var indexSelectedItem: Int {
+        return categories.firstIndex(of: selectedCategory) ?? 0
+    }
+    
+    func didSelectedItem(at index: Int) {
+        let product = categories[index]
+        selectedCategory = product
+    }
+}
+
+extension MainViewModel: LatestTableCellViewModelProtocol {
+    var numberOfRowsLatest: Int {
+        latestProducts.count
+    }
+    
+    func getLatestViewModel(at index: Int) -> LatestCollectionCellViewModelProtocol {
+        LatestCollectionCellViewModel(product: latestProducts[index], networkManager: networkManager)
+    }
+    
+    var didLoadDataForLatest: ((Bool) -> Void)? {
+        get { didLoadProductData }
+        set { didLoadProductData = newValue }
+    }
+}
+
+    //extension MainViewModel: BestSellerTableCellViewModelProtocol {
+    //    var numberOfRowsBestSeller: Int {
+    //        bestSellesModels.count
+    //    }
+    //
+    //    func getBestSellerViewModel(at index: Int) -> BestSellerCollectionCellViewModelProtocol {
+    //        BestSellerCollectionCellViewModel(bestSellesModels[index])
+    //    }
+    //
+    //    var didLoadDataForBestSeller: ((Bool) -> Void)? {
+    //        get { didLoadBestSellerData }
+    //        set { didLoadBestSellerData = newValue }
+    //    }
+    
+    
+

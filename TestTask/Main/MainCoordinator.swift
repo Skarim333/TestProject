@@ -20,9 +20,10 @@ final class MainCoordinator: Coordinator {
     
     func start() {
         let mainViewController = MainViewController()
-        let mainViewModel = MainViewModel()
+        let networkManager = NetworkManager()
+        let mainViewModel = MainViewModel(networkManager: networkManager)
         mainViewModel.coordinator = self
-//        mainViewController.viewModel = mainViewModel
+        mainViewController.viewModel = mainViewModel
         navigationController.setViewControllers([mainViewController], animated: true)
     }
     

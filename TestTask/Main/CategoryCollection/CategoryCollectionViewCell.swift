@@ -63,26 +63,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         addSubview(iconView)
         addSubview(nameCategoryLabel)
         iconView.addSubview(iconImageView)
-
-//        iconView.anchor(top: topAnchor,
-//                        leading: nil,
-//                        bottom: nil,
-//                        trailing: nil,
-//                        size: CGSize(width: 71, height: 71))
-//        iconView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//
-//        nameCategoryLabel.anchor(top: iconView.bottomAnchor,
-//                                 leading: leadingAnchor,
-//                                 bottom: bottomAnchor,
-//                                 trailing: trailingAnchor,
-//                                 padding: UIEdgeInsets(top: 7, left: 0, bottom: 0, right: 0))
-//
-//        NSLayoutConstraint.activate([
-//            iconImageView.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.4),
-//            iconImageView.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.4),
-//            iconImageView.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
-//            iconImageView.centerYAnchor.constraint(equalTo: iconView.centerYAnchor)
-//        ])
     }
 
     override func layoutSubviews() {

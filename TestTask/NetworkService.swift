@@ -5,19 +5,32 @@
 //  Created by Карим Садыков on 12.03.2023.
 //
 
-import Foundation
+import UIKit
 
 // Define the network layer
 class NetworkManager {
     static let shared = NetworkManager()
     let session: URLSession
     
-    private init() {
+    init() {
         session = URLSession.shared
     }
     
+    func getImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        session.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            DispatchQueue.main.async {
+                completion(UIImage(data: data))
+            }
+        }.resume()
+    }
+
+    
     func fetchLatestProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-        let url = URL(string: "https://example.com/latest")!
+        let url = URL(string: "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7")!
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -43,7 +56,7 @@ class NetworkManager {
     }
     
     func fetchFlashSales(completion: @escaping (Result<[FlashSale], Error>) -> Void) {
-        let url = URL(string: "https://example.com/flash-sale")!
+        let url = URL(string: "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac")!
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
