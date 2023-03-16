@@ -87,7 +87,7 @@ extension LatestTableViewCell: UICollectionViewDataSource {
 
 extension LatestTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        SizesCell.calculateSizeCollectionCell(width: collectionView.frame.width)
+        CGSize(width: 115, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return SizesCell.minimumInteritemSpacing

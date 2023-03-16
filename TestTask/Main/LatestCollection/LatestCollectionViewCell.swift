@@ -24,37 +24,37 @@ class LatestCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(white: 0.8, alpha: 1)
+        label.textColor = .white
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 8)
         return label
     }()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 9)
         return label
     }()
     
     private let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.85).cgColor
+        view.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.85)
         return view
     }()
     
     private let categoryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(red: 0.027, green: 0.024, blue: 0.016, alpha: 1)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 7)
         return label
     }()
     
@@ -62,6 +62,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.layer.backgroundColor = UIColor(red: 0.898, green: 0.914, blue: 0.937, alpha: 0.85).cgColor
+        button.tintColor = UIColor(red: 0.329, green: 0.333, blue: 0.537, alpha: 1)
         return button
     }()
     
@@ -82,17 +83,18 @@ class LatestCollectionViewCell: UICollectionViewCell {
         imageView.addSubview(titleLabel)
         imageView.addSubview(backView)
         imageView.addSubview(addButton)
-        backView.addSubview(categoryLabel)
+        imageView.addSubview(categoryLabel)
         addButton.addTarget(self, action: #selector(touchLikeButton), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds
-        priceLabel.frame = CGRect(x: 7, y: 135, width: 40, height: 7)
-        titleLabel.frame = CGRect(x: 7, y: 110, width: 70, height: 10)
-        backView.frame = CGRect(x: 7, y: 90, width: 12, height: 35)
-        categoryLabel.center = backView.center
+        priceLabel.frame = CGRect(x: 8, y: 135, width: 60, height: 7)
+        titleLabel.frame = CGRect(x: 7, y: 108, width: 58, height: 22)
+        backView.frame = CGRect(x: 7, y: 90, width: 35, height: 12)
+        categoryLabel.frame = CGRect(x: 7, y: 90, width: 35, height: 12)
+        backView.layer.cornerRadius = backView.height/2
         addButton.frame = CGRect(x: width-25, y: height-25, width: 20, height: 20)
         addButton.layer.cornerRadius = addButton.height/2
     }

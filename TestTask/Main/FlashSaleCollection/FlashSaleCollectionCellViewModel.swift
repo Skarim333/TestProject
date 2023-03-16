@@ -41,11 +41,11 @@ class FlashSaleCollectionCellViewModel: FlashSaleCollectionCellViewModelProtocol
     }
     
     var price: String {
-        String(flashSale.price)
+        String(format: "%.2f", flashSale.price).replacingOccurrences(of: ".", with: ",")
     }
     
     var discount: String {
-        String(flashSale.discount)
+        "\(flashSale.discount)% off"
     }
     
     var imageUrl: URL {
