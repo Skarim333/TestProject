@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 0.98, green: 0.976, blue: 1, alpha: 1)
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self

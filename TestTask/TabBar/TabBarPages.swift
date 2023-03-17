@@ -17,15 +17,15 @@ enum TabBarPages: String {
     func pageImageValue() -> UIImage {
         switch self {
         case .main:
-            return #imageLiteral(resourceName: "google").withRenderingMode(.alwaysOriginal)
+            return UIImage(systemName: "heart")!
         case .favourite:
-            return #imageLiteral(resourceName: "cars").withRenderingMode(.alwaysOriginal)
+            return UIImage(systemName: "heart")!
         case .cart:
-            return #imageLiteral(resourceName: "games").withRenderingMode(.alwaysOriginal)
+            return UIImage(systemName: "heart")!
         case .chat:
-            return #imageLiteral(resourceName: "google").withRenderingMode(.alwaysOriginal)
+            return UIImage(systemName: "heart")!
         case .profile:
-            return #imageLiteral(resourceName: "phones").withRenderingMode(.alwaysOriginal)
+            return UIImage(systemName: "heart")!
         }
     }
     

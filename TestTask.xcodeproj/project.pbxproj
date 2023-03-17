@@ -32,12 +32,15 @@
 		5D7CC8B629BB56C700ABCD61 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B529BB56C700ABCD61 /* DatabaseManager.swift */; };
 		5D7CC8B829BB56ED00ABCD61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B729BB56ED00ABCD61 /* User.swift */; };
 		5D7CC8C029BB669D00ABCD61 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */; };
+		5D7D3B8329C38EF500E42975 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D3B8229C38EF500E42975 /* SignInViewModel.swift */; };
 		5D7F2A0E29BE45E900793645 /* CategoryProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F2A0D29BE45E900793645 /* CategoryProduct.swift */; };
 		5D7F2A1129BE496000793645 /* CategoryCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F2A1029BE496000793645 /* CategoryCollectionCellViewModel.swift */; };
 		5D874C5029BF1E5C00E62ADA /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C4F29BF1E5C00E62ADA /* CategoryCollectionViewCell.swift */; };
 		5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */; };
 		5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */; };
 		5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */; };
+		5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64129C46D08006F2935 /* CustomLabel.swift */; };
+		5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64329C4768F006F2935 /* PasswordTextField.swift */; };
 		5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */; };
 		5DB03DF129BCB529003BEC44 /* TabBarPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DF029BCB529003BEC44 /* TabBarPages.swift */; };
 		5DB03DF329BCB584003BEC44 /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DF229BCB584003BEC44 /* SignInCoordinator.swift */; };
@@ -77,12 +80,15 @@
 		5D7CC8B529BB56C700ABCD61 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		5D7CC8B729BB56ED00ABCD61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		5D7D3B8229C38EF500E42975 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		5D7F2A0D29BE45E900793645 /* CategoryProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProduct.swift; sourceTree = "<group>"; };
 		5D7F2A1029BE496000793645 /* CategoryCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		5D874C4F29BF1E5C00E62ADA /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTableViewCell.swift; sourceTree = "<group>"; };
+		5D8ED64129C46D08006F2935 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		5D8ED64329C4768F006F2935 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5DB03DF029BCB529003BEC44 /* TabBarPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPages.swift; sourceTree = "<group>"; };
 		5DB03DF229BCB584003BEC44 /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
@@ -172,7 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				5D78FAC729BB258D0006848E /* AuthField.swift */,
+				5D8ED64329C4768F006F2935 /* PasswordTextField.swift */,
 				5D78FACB29BB2F580006848E /* AuthButton.swift */,
+				5D8ED64129C46D08006F2935 /* CustomLabel.swift */,
 				5D78FAC929BB26E30006848E /* UIView + Extension.swift */,
 				5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */,
 			);
@@ -215,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				5D78FAC529BB248B0006848E /* SignInViewController.swift */,
+				5D7D3B8229C38EF500E42975 /* SignInViewModel.swift */,
 				5DB03DF229BCB584003BEC44 /* SignInCoordinator.swift */,
 			);
 			path = SignIn;
@@ -349,6 +358,7 @@
 				5D7A2B8B29BDE56100BBBBCA /* NetworkService.swift in Sources */,
 				5DB03DF529BCB597003BEC44 /* LogInCoordinator.swift in Sources */,
 				5D2AF09329C34CC300481A7F /* NavigationView.swift in Sources */,
+				5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */,
 				5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */,
 				5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */,
 				5D7888DA29BBBBC9007FA886 /* AppCoordinator.swift in Sources */,
@@ -360,6 +370,7 @@
 				5D7CC8B629BB56C700ABCD61 /* DatabaseManager.swift in Sources */,
 				5D7A2B8729BDD1CA00BBBBCA /* UserManager.swift in Sources */,
 				5D2AF09929C34D5100481A7F /* ProfileView.swift in Sources */,
+				5D7D3B8329C38EF500E42975 /* SignInViewModel.swift in Sources */,
 				5D7B5C9D29BE31BA00FB4050 /* FlashSale.swift in Sources */,
 				5D874C5029BF1E5C00E62ADA /* CategoryCollectionViewCell.swift in Sources */,
 				5D7CC8C029BB669D00ABCD61 /* UIImageView + Extensions.swift in Sources */,
@@ -368,6 +379,7 @@
 				5DDBB48E29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift in Sources */,
 				5DB03DF329BCB584003BEC44 /* SignInCoordinator.swift in Sources */,
 				5DB03DF129BCB529003BEC44 /* TabBarPages.swift in Sources */,
+				5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */,
 				5D7F2A1129BE496000793645 /* CategoryCollectionCellViewModel.swift in Sources */,
 				5D78FAB429BB12470006848E /* SceneDelegate.swift in Sources */,
 				5DB03DF929BCB607003BEC44 /* MainCoordinator.swift in Sources */,
