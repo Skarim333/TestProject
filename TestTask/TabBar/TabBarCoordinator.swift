@@ -66,10 +66,10 @@ final class TabBarCoordinator: Coordinator {
                 mainCoordinator.start()
         case .profile:
             
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
+                let profileCoordinator = ProfileCoordinator(navigationController: navigationController)
+                profileCoordinator.parentCoordinator = self
+                childCoordinators.append(profileCoordinator)
+                profileCoordinator.start()
         }
         
         return navigationController

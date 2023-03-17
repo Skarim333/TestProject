@@ -25,7 +25,7 @@ enum TabBarPages: String {
         case .chat:
             return UIImage(systemName: "heart")!
         case .profile:
-            return UIImage(systemName: "heart")!
+            return UIImage(systemName: "trash")!
         }
     }
     

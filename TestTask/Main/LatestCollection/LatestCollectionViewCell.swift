@@ -82,7 +82,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         imageView.addSubview(priceLabel)
         imageView.addSubview(titleLabel)
         imageView.addSubview(backView)
-        imageView.addSubview(addButton)
+        contentView.addSubview(addButton)
         imageView.addSubview(categoryLabel)
         addButton.addTarget(self, action: #selector(touchLikeButton), for: .touchUpInside)
     }

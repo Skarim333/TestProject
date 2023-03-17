@@ -14,6 +14,7 @@ class AuthButton: UIButton {
         case signUp
         case logIn
         case google
+        case change
         case plain
 
         var title: String {
@@ -23,6 +24,7 @@ class AuthButton: UIButton {
             case .logIn: return "Log in"
             case .google: return " "
             case .plain: return "-"
+            case .change: return ""
             }
         }
     }
@@ -71,7 +73,10 @@ class AuthButton: UIButton {
             setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             backgroundColor = .clear
             titleLabel?.font = .systemFont(ofSize: 12)
+        case .change:
+            setTitleColor(UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1), for: .normal)
+            backgroundColor = .clear
+            titleLabel?.font = .systemFont(ofSize: 8)
         }
-        
     }
 }

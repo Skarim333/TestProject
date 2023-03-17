@@ -120,14 +120,15 @@ class FlashSaleCollectionViewCell: UICollectionViewCell {
         imageView.addSubview(priceLabel)
         imageView.addSubview(titleLabel)
         imageView.addSubview(backView)
-        imageView.addSubview(addButton)
+        contentView.addSubview(addButton)
         imageView.addSubview(likeView)
         imageView.addSubview(discountBackView)
         imageView.addSubview(sellerImage)
         imageView.addSubview(discountPriceLabel)
-        imageView.addSubview(likeButton)
+        contentView.addSubview(likeButton)
         imageView.addSubview(categoryLabel)
         addButton.addTarget(self, action: #selector(touchLikeButton), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(touchLikeButton), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
