@@ -30,9 +30,12 @@
 		5D79CE2829C4A00C004FC8D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2729C4A00C004FC8D1 /* ProfileViewModel.swift */; };
 		5D79CE2A29C4A03D004FC8D1 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2929C4A03D004FC8D1 /* ProfileCoordinator.swift */; };
 		5D79CE2C29C4B22C004FC8D1 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */; };
+		5D79CE2E29C4D7B3004FC8D1 /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2D29C4D7B3004FC8D1 /* Shoe.swift */; };
 		5D7A2B8729BDD1CA00BBBBCA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */; };
 		5D7A2B8929BDE49300BBBBCA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8829BDE49300BBBBCA /* MainViewModel.swift */; };
 		5D7A2B8B29BDE56100BBBBCA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */; };
+		5D7AB98029C5C42D00336EF7 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */; };
+		5D7AB98229C5E12F00336EF7 /* AddToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AB98129C5E12F00336EF7 /* AddToCardView.swift */; };
 		5D7B5C9B29BE31A500FB4050 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B5C9A29BE31A500FB4050 /* Product.swift */; };
 		5D7B5C9D29BE31BA00FB4050 /* FlashSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B5C9C29BE31BA00FB4050 /* FlashSale.swift */; };
 		5D7CC8B429BB55DF00ABCD61 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */; };
@@ -46,6 +49,7 @@
 		5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */; };
 		5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */; };
 		5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */; };
+		5D8BA26429C6075700183BFF /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BA26329C6075700183BFF /* test.swift */; };
 		5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64129C46D08006F2935 /* CustomLabel.swift */; };
 		5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64329C4768F006F2935 /* PasswordTextField.swift */; };
 		5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */; };
@@ -85,9 +89,12 @@
 		5D79CE2729C4A00C004FC8D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5D79CE2929C4A03D004FC8D1 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		5D79CE2D29C4D7B3004FC8D1 /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
 		5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		5D7A2B8829BDE49300BBBBCA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		5D7AB98129C5E12F00336EF7 /* AddToCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCardView.swift; sourceTree = "<group>"; };
 		5D7B5C9A29BE31A500FB4050 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		5D7B5C9C29BE31BA00FB4050 /* FlashSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSale.swift; sourceTree = "<group>"; };
 		5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 		5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTableViewCell.swift; sourceTree = "<group>"; };
+		5D8BA26329C6075700183BFF /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		5D8ED64129C46D08006F2935 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		5D8ED64329C4768F006F2935 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				5D79CE1D29C498D1004FC8D1 /* DetailViewController.swift */,
 				5D79CE2229C49967004FC8D1 /* DetailsViewModel.swift */,
 				5D79CE2029C4991D004FC8D1 /* DetailCoordinator.swift */,
+				5D7AB98129C5E12F00336EF7 /* AddToCardView.swift */,
+				5D8BA26329C6075700183BFF /* test.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -206,6 +216,7 @@
 				5D7CC8B729BB56ED00ABCD61 /* User.swift */,
 				5D7B5C9C29BE31BA00FB4050 /* FlashSale.swift */,
 				5D7B5C9A29BE31A500FB4050 /* Product.swift */,
+				5D79CE2D29C4D7B3004FC8D1 /* Shoe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 				5D78FAC929BB26E30006848E /* UIView + Extension.swift */,
 				5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */,
 				5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */,
+				5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -403,6 +415,7 @@
 				5DB03DF729BCB5E5003BEC44 /* MainViewController.swift in Sources */,
 				5D79CE2C29C4B22C004FC8D1 /* CustomView.swift in Sources */,
 				5D79CE2129C4991D004FC8D1 /* DetailCoordinator.swift in Sources */,
+				5D7AB98229C5E12F00336EF7 /* AddToCardView.swift in Sources */,
 				5DDBB49129C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift in Sources */,
 				5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */,
 				5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */,
@@ -417,7 +430,9 @@
 				5DDBB49329C09A600047DD67 /* FlashSaleTableViewCell.swift in Sources */,
 				5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */,
 				5DDBB48E29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift in Sources */,
+				5D8BA26429C6075700183BFF /* test.swift in Sources */,
 				5D79CE2A29C4A03D004FC8D1 /* ProfileCoordinator.swift in Sources */,
+				5D7AB98029C5C42D00336EF7 /* UIColor + Extension.swift in Sources */,
 				5DB03DF329BCB584003BEC44 /* SignInCoordinator.swift in Sources */,
 				5DB03DF129BCB529003BEC44 /* TabBarPages.swift in Sources */,
 				5D79CE1E29C498D1004FC8D1 /* DetailViewController.swift in Sources */,
@@ -433,6 +448,7 @@
 				5D78FACA29BB26E30006848E /* UIView + Extension.swift in Sources */,
 				5D7888DC29BBBBF7007FA886 /* TabBarCoordinator.swift in Sources */,
 				5D7CC8B829BB56ED00ABCD61 /* User.swift in Sources */,
+				5D79CE2E29C4D7B3004FC8D1 /* Shoe.swift in Sources */,
 				5D78FAC629BB248B0006848E /* SignInViewController.swift in Sources */,
 				5D79CE2629C49FF1004FC8D1 /* ProfileViewController.swift in Sources */,
 				5D7A2B8929BDE49300BBBBCA /* MainViewModel.swift in Sources */,

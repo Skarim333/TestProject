@@ -31,8 +31,8 @@ class CustomTabBarController: UITabBarController {
     }
 
     private func annimationsWhenSelectedItem(_ item: UITabBarItem) {
-        guard let barItemView = item.value(forKey: "view") as? UIView else { return }
-        
+//        guard let barItemView = item.value(forKey: "view") as? UIView else { return }
+//        
 //        let timeInterval: TimeInterval = 0.2
 //        let propertyAnimator = UIViewPropertyAnimator(duration: timeInterval, dampingRatio: 0.5) {
 //            barItemView.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
