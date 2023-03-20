@@ -20,11 +20,11 @@ final class LogInCoordinator: Coordinator {
     
     
     func start() {
-        let detailViewController = LogInViewController()
-//        let detailViewModel = DetailsViewModel()
-//        detailViewModel.coordinator = self
-//        detailViewController.viewModel = detailViewModel
-        navigationController.pushViewController(detailViewController, animated: true)
+        let logInViewController = LogInViewController()
+        let logInViewModel = LogInViewModel()
+        logInViewModel.coordinator = self
+        logInViewController.viewModel = logInViewModel
+        navigationController.pushViewController(logInViewController, animated: true)
         navigationController.isNavigationBarHidden = false
     }
     

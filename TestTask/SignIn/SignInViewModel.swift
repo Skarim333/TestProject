@@ -8,10 +8,15 @@
 import Foundation
 
 protocol SignInViewModelProtocol: AnyObject {
-    
+    func pushLoginView()
     
 }
 
 class SignInViewModel: SignInViewModelProtocol {
     
+    var coordinator: SignInCoordinator?
+    
+    func pushLoginView() {
+        coordinator?.startLognInScene()
+    }
 }

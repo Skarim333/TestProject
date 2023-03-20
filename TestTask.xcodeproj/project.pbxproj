@@ -11,6 +11,7 @@
 		5D2AF09329C34CC300481A7F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09229C34CC300481A7F /* NavigationView.swift */; };
 		5D2AF09729C34D0A00481A7F /* MainCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */; };
 		5D2AF09929C34D5100481A7F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09829C34D5100481A7F /* ProfileView.swift */; };
+		5D77821429C8413C00E49E6A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D77821329C8413C00E49E6A /* LoginViewModel.swift */; };
 		5D7888D829BBBBB5007FA886 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7888D729BBBBB5007FA886 /* Coordinator.swift */; };
 		5D7888DA29BBBBC9007FA886 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7888D929BBBBC9007FA886 /* AppCoordinator.swift */; };
 		5D7888DC29BBBBF7007FA886 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7888DB29BBBBF7007FA886 /* TabBarCoordinator.swift */; };
@@ -50,6 +51,7 @@
 		5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */; };
 		5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */; };
 		5D8BA26429C6075700183BFF /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BA26329C6075700183BFF /* test.swift */; };
+		5D8BA26629C6255C00183BFF /* DetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BA26529C6255C00183BFF /* DetailImageView.swift */; };
 		5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64129C46D08006F2935 /* CustomLabel.swift */; };
 		5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64329C4768F006F2935 /* PasswordTextField.swift */; };
 		5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */; };
@@ -68,6 +70,7 @@
 		5D2AF09229C34CC300481A7F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellHeaderView.swift; sourceTree = "<group>"; };
 		5D2AF09829C34D5100481A7F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5D77821329C8413C00E49E6A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5D7888D729BBBBB5007FA886 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5D7888D929BBBBC9007FA886 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5D7888DB29BBBBF7007FA886 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTableViewCell.swift; sourceTree = "<group>"; };
 		5D8BA26329C6075700183BFF /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		5D8BA26529C6255C00183BFF /* DetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageView.swift; sourceTree = "<group>"; };
 		5D8ED64129C46D08006F2935 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		5D8ED64329C4768F006F2935 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				5D79CE2229C49967004FC8D1 /* DetailsViewModel.swift */,
 				5D79CE2029C4991D004FC8D1 /* DetailCoordinator.swift */,
 				5D7AB98129C5E12F00336EF7 /* AddToCardView.swift */,
+				5D8BA26529C6255C00183BFF /* DetailImageView.swift */,
 				5D8BA26329C6075700183BFF /* test.swift */,
 			);
 			path = Detail;
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				5D78FACD29BB38070006848E /* LogInViewController.swift */,
+				5D77821329C8413C00E49E6A /* LoginViewModel.swift */,
 				5DB03DF429BCB597003BEC44 /* LogInCoordinator.swift */,
 			);
 			path = LogIn;
@@ -409,6 +415,7 @@
 				5D2AF09329C34CC300481A7F /* NavigationView.swift in Sources */,
 				5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */,
 				5D79CE2329C49967004FC8D1 /* DetailsViewModel.swift in Sources */,
+				5D77821429C8413C00E49E6A /* LoginViewModel.swift in Sources */,
 				5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */,
 				5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */,
 				5D7888DA29BBBBC9007FA886 /* AppCoordinator.swift in Sources */,
@@ -418,6 +425,7 @@
 				5D7AB98229C5E12F00336EF7 /* AddToCardView.swift in Sources */,
 				5DDBB49129C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift in Sources */,
 				5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */,
+				5D8BA26629C6255C00183BFF /* DetailImageView.swift in Sources */,
 				5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */,
 				5D78FAB229BB12470006848E /* AppDelegate.swift in Sources */,
 				5D7CC8B629BB56C700ABCD61 /* DatabaseManager.swift in Sources */,
