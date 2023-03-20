@@ -40,7 +40,7 @@ class LatestCollectionCellViewModel: LatestCollectionCellViewModelProtocol {
     }
     
     var price: String {
-        String(format: "%.3f", product.price).replacingOccurrences(of: ".", with: ",")
+        String(product.price)
     }
     
     var imageUrl: URL {

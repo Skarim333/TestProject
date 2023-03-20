@@ -13,12 +13,14 @@ class AuthField: UITextField {
         case name
         case lastName
         case email
+        case password
         
         var title: String {
             switch self {
             case .name: return "First name"
             case .lastName: return "Last name"
             case .email: return "Email"
+            case .password: return "Password"
             }
         }
     }
@@ -37,15 +39,17 @@ class AuthField: UITextField {
     
     private func configureUI() {
         autocapitalizationType = .none
-        backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        attributedPlaceholder = NSAttributedString(string:  type.title, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.482, green: 0.482, blue: 0.482, alpha: 1),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)])
-        layer.cornerRadius = 14
+        backgroundColor = .secondarySystemBackground
+        layer.cornerRadius = 8
         layer.masksToBounds = true
-//        placeholder = type.title
+        placeholder = type.title
         textAlignment = .center
         returnKeyType = .go
         autocorrectionType = .no
-        if type == .email {
+        if type == .password {
+            textContentType = .oneTimeCode
+            isSecureTextEntry = true
+        } else if type == .email {
             keyboardType = .emailAddress
             textContentType = .emailAddress
         }

@@ -21,7 +21,7 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func start() {
-        let pages: [TabBarPages] = [.main, .favourite, .cart, .chat, .profile]
+        let pages: [TabBarPages] = [.main, .favourite, .cart, TabBarPages .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         prepareTabBarController(withTabControllers: controllers)
     }
@@ -40,36 +40,21 @@ final class TabBarCoordinator: Coordinator {
         navigationController.tabBarItem = tabBarItem
         
         switch page {
-        case .main:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
-        case .favourite:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
-        case .cart:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
-        case .chat:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
-        case .profile:
-            
-                let profileCoordinator = ProfileCoordinator(navigationController: navigationController)
-                profileCoordinator.parentCoordinator = self
-                childCoordinators.append(profileCoordinator)
-                profileCoordinator.start()
+//        case .explorer:
+//            let mainCoordinator = MainCoordinator(navigationController: navigationController)
+//            mainCoordinator.parentCoordinator = self
+//            childCoordinators.append(mainCoordinator)
+//            mainCoordinator.start()
+//        case .cart:
+//            let cartCoordinator = CartCoordinator(navigationController: navigationController)
+//            cartCoordinator.parentCoordinator = self
+//            childCoordinators.append(cartCoordinator)
+//            cartCoordinator.start()
+        default:
+            let mainCoordinator = MainCoordinator(navigationController: navigationController)
+            mainCoordinator.parentCoordinator = self
+            childCoordinators.append(mainCoordinator)
+            mainCoordinator.start()
         }
         
         return navigationController

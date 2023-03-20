@@ -27,10 +27,10 @@ final class MainCoordinator: Coordinator {
         navigationController.setViewControllers([mainViewController], animated: true)
     }
     
-    func startDetailScene() {
-        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
-        detailCoordinator.parentCoordinator = self
-        childCoordinators.append(detailCoordinator)
-        detailCoordinator.start()
-    }
+//    func startDetailScene() {
+//        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
+//        detailCoordinator.parentCoordinator = self
+//        childCoordinators.append(detailCoordinator)
+//        detailCoordinator.start()
+//    }
 }

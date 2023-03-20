@@ -8,11 +8,14 @@
 import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
-    
-    private let titleLabel = CustomLabel(text: "Welcome back", alignment: .center, fontSize: 21, weight: .bold, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome back"
+        return label
+    }()
     
     private let firstNameField = AuthField(type: .name)
-    private let passwordField = PasswordTextField(placeholder: "Password")
+    private let passwordField = AuthField(type: .password)
     
     private let loginButton = AuthButton(type: .signIn, title: "Log In")
     
@@ -33,7 +36,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        titleLabel.frame = CGRect(x: 0, y: 159, width: view.width, height: 20)
+        titleLabel.frame = CGRect(x: 90.05, y: 158.71, width: 195.63, height: 19.47)
         firstNameField.frame = CGRect(x: 44, y: 259, width: 289, height: 29)
         passwordField.frame = CGRect(x: 44, y: 323, width: 289, height: 29)
         loginButton.frame = CGRect(x: 43, y: 451, width: 289, height: 46)

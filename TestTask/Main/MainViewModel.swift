@@ -9,6 +9,7 @@ import UIKit
 
 protocol MainViewModelProtocol: AnyObject {
     var title: String { get }
+    func pushDetailView()
 }
 
 class MainViewModel: MainViewModelProtocol {
@@ -75,6 +76,9 @@ class MainViewModel: MainViewModelProtocol {
         didLoadProductData?(true)
         didLoadFlashSaleData?(true)
     }
+    func pushDetailView() {
+        //        self.coordinator?.startDetailScene()
+    }
 }
 
 extension MainViewModel: CategoryTableCellViewModelProtocol {
@@ -128,8 +132,5 @@ extension MainViewModel: FlashSaleTableCellViewModelProtocol {
         set { didLoadFlashSaleData = newValue }
     }
     
-    func pushDetailView() {
-        self.coordinator?.startDetailScene()
-    }
 }
 

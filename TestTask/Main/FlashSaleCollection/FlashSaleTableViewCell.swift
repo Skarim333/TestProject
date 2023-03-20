@@ -13,8 +13,6 @@ protocol FlashSaleTableCellViewModelProtocol: MainViewModelProtocol {
     func getFlashSaleViewModel(at index: Int) -> FlashSaleCollectionCellViewModelProtocol
     
     var didLoadDataForFlashSale: ((Bool) -> Void)? { get set }
-    
-    func pushDetailView()
 }
 
 class FlashSaleTableViewCell: UITableViewCell {
@@ -84,12 +82,6 @@ extension FlashSaleTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlashSaleCollectionViewCell.identifier, for: indexPath) as! FlashSaleCollectionViewCell
         cell.viewModel = viewModel.getFlashSaleViewModel(at: indexPath.row)
         return cell
-    }
-}
-
-extension FlashSaleTableViewCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.pushDetailView()
     }
 }
 
