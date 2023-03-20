@@ -1,13 +1,12 @@
 //
-//  test.swift
+//  DetailImageView.swift
 //  TestTask
 //
 //  Created by Карим Садыков on 18.03.2023.
 //
 
 import UIKit
-
-class ViewController: UIViewController, UIScrollViewDelegate {
+class DetailImageView: UIView, UIScrollViewDelegate {
     
     var photoArray = ["apple", "seller", "profile"]
     var selectedPhotoIndex = 0
@@ -16,15 +15,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let photoSelectionView = UIView()
     let productImageView = UIImageView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+    override init(frame: CGRect) {
+        super .init(frame: frame)
+    
+        backgroundColor = .white
         // Configure photo scroll view
         photoScrollView.delegate = self
-        photoScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height * 0.6)
+        photoScrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.6)
         photoScrollView.isPagingEnabled = true
         photoScrollView.showsHorizontalScrollIndicator = false
-        view.addSubview(photoScrollView)
+        addSubview(photoScrollView)
         
         // Add photo views to the scroll view
         for i in 0..<photoArray.count {
@@ -38,12 +38,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         photoScrollView.contentSize = CGSize(width: photoScrollView.width * CGFloat(photoArray.count), height: photoScrollView.height)
         
         // Configure photo selection view
-        photoSelectionView.frame = CGRect(x: 0, y: photoScrollView.frame.maxY, width: view.frame.width, height: view.frame.height * 0.2)
-        view.addSubview(photoSelectionView)
+        photoSelectionView.frame = CGRect(x: 0, y: photoScrollView.frame.maxY, width: frame.width, height: frame.height * 0.2)
+        addSubview(photoSelectionView)
         
         // Add selection views to photo selection view
         for i in 0..<photoArray.count {
-            let selectionView = UIView(frame: CGRect(x: (view.width/3) * CGFloat(i), y: 0, width: photoSelectionView.frame.size.width/3, height: photoSelectionView.frame.size.height))
+            let selectionView = UIView(frame: CGRect(x: (width/3) * CGFloat(i), y: 0, width: photoSelectionView.frame.size.width/3, height: photoSelectionView.frame.size.height))
             selectionView.backgroundColor = UIColor.clear
 //            selectionView.layer.borderWidth = 2
 //            selectionView.layer.borderColor = UIColor.gray.cgColor
@@ -67,6 +67,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 //        productImageView.contentMode = .scaleAspectFit
 //        productImageView.image = UIImage(named: photoArray[selectedPhotoIndex])
 //        view.addSubview(productImageView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -107,3 +111,4 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
 }
+

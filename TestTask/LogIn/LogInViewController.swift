@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
+class LogInViewController: UIViewController {
+    
+    var viewModel: LogInViewModelProtocol!
     
     private let titleLabel = CustomLabel(text: "Welcome back", alignment: .center, fontSize: 21, weight: .bold, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
     
@@ -15,6 +17,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private let passwordField = PasswordTextField(placeholder: "Password")
     
     private let loginButton = AuthButton(type: .signIn, title: "Log In")
+    private let showHideButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+//        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        button.tintColor = .gray
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +31,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         addSubviews()
         configureFields()
         configureButtons()
+        view.addSubview(showHideButton)
+        passwordField.isSecureTextEntry = true
+        showHideButton.addTarget(self, action: #selector(showHidePassword), for: .touchUpInside)
+    }
+    @objc func showHidePassword(sender: UIButton) {
+        passwordField.isSecureTextEntry.toggle()
+        sender.setImage(UIImage(systemName: passwordField.isSecureTextEntry ? "eye.slash" : "eye"), for: .normal)
     }
     
     private func addSubviews() {
@@ -36,22 +52,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         titleLabel.frame = CGRect(x: 0, y: 159, width: view.width, height: 20)
         firstNameField.frame = CGRect(x: 44, y: 259, width: 289, height: 29)
         passwordField.frame = CGRect(x: 44, y: 323, width: 289, height: 29)
+        showHideButton.frame = CGRect(x: passwordField.right-30, y: passwordField.top+(15/2), width: 15, height: 15)
         loginButton.frame = CGRect(x: 43, y: 451, width: 289, height: 46)
     }
     
     func configureFields() {
         firstNameField.delegate = self
         passwordField.delegate = self
-
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.width, height: 50))
-        toolBar.items = [
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone))
-        ]
-        toolBar.sizeToFit()
-        firstNameField.inputAccessoryView = toolBar
-        passwordField.inputAccessoryView = toolBar
-
     }
     
     @objc func didTapKeyboardDone() {
@@ -100,9 +107,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func didTapLogIn() {
-//        didTapKeyboardDone()
-//        let vc = SignUpViewController()
-//        vc.title = "Create Account"
-//        navigationController?.pushViewController(vc, animated: true)
+
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordField.resignFirstResponder()
+        firstNameField.resignFirstResponder()
+        return true
     }
 }

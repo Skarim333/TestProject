@@ -12,16 +12,17 @@ class PasswordTextField: UITextField {
     private let showHideButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+//        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
         button.tintColor = .gray
         return button
     }()
     
     init(placeholder: String) {
         super.init(frame: .zero)
-        self.isSecureTextEntry = true
-        self.rightView = showHideButton
-        self.rightViewMode = .always
+//        self.isSecureTextEntry = true
+//        addSubview(showHideButton)
+//        self.rightView = showHideButton
+//        self.rightViewMode = .always
         self.textAlignment = .center
         self.returnKeyType = .go
         self.autocorrectionType = .no
@@ -31,6 +32,11 @@ class PasswordTextField: UITextField {
         self.layer.cornerRadius = 14
         self.layer.masksToBounds = true
         showHideButton.addTarget(self, action: #selector(showHidePassword), for: .touchUpInside)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        showHideButton.frame = CGRect(x: width-30, y: (height-15)/2, width: 15, height: 15)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -21,15 +21,16 @@ final class AppCoordinator: Coordinator {
         let navigationController = UINavigationController()
         let shared = AuthManager.shared
         navigationController.setNavigationBarHidden(true, animated: true)
-//        if shared.isSignedIn {
+        print(shared.isSignedIn)
+        if shared.isSignedIn {
             let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
             childCoordinators.append(tabBarCoordinator)
             tabBarCoordinator.start()
-//        } else {
-//            let signInCordinator = LogInCoordinator(navigationController: navigationController)
-//            childCoordinators.append(signInCordinator)
-//            signInCordinator.start()
-//        }
+        } else {
+            let signInCordinator = SignInCoordinator(navigationController: navigationController)
+            childCoordinators.append(signInCordinator)
+            signInCordinator.start()
+        }
         
         
         window.rootViewController = navigationController

@@ -20,19 +20,19 @@ final class SignInCoordinator: Coordinator {
     
     
     func start() {
-        let detailViewController = SignInViewController()
-//        let detailViewModel = DetailsViewModel()
-//        detailViewModel.coordinator = self
-//        detailViewController.viewModel = detailViewModel
-        navigationController.pushViewController(detailViewController, animated: true)
+        let signInViewController = SignInViewController()
+        let signInViewModel = SignInViewModel()
+        signInViewModel.coordinator = self
+        signInViewController.viewModel = signInViewModel
+        navigationController.pushViewController(signInViewController, animated: true)
         navigationController.isNavigationBarHidden = false
     }
     
-    func startDetailScene() {
-        let detailCoordinator = LogInCoordinator(navigationController: navigationController)
-        detailCoordinator.parentCoordinator = self
-        childCoordinators.append(detailCoordinator)
-        detailCoordinator.start()
+    func startLognInScene() {
+        let logInCoordinator = LogInCoordinator(navigationController: navigationController)
+        logInCoordinator.parentCoordinator = self
+        childCoordinators.append(logInCoordinator)
+        logInCoordinator.start()
     }
     
     

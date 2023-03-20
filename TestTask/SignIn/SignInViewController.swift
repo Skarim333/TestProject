@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignInViewController: UIViewController, UITextFieldDelegate {
+final class SignInViewController: UIViewController {
     
     var viewModel: SignInViewModelProtocol!
     
@@ -74,16 +74,6 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
         firstNameField.delegate = self
         lastNameField.delegate = self
         emailField.delegate = self
-
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.width, height: 50))
-        toolBar.items = [
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapKeyboardDone))
-        ]
-        toolBar.sizeToFit()
-        firstNameField.inputAccessoryView = toolBar
-        lastNameField.inputAccessoryView = toolBar
-        emailField.inputAccessoryView = toolBar
     }
     
     @objc func didTapKeyboardDone() {
@@ -116,7 +106,14 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
             return
         }
         print("SECCESS")
-
+        let createUserResult = UserManager.shared.createUser(firstName: firstName, lastName: lastName, email: email, password: "password")
+        switch createUserResult {
+        case .success(let user):
+            print("Created user successfully: \(user)")
+        case .failure(let error):
+            print("Failed to create user with error: \(error)")
+        }
+//        AuthManager.shared.signIn(firstName: firstName, lastName: lastName, email: email)
 //        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
 //            DispatchQueue.main.async {
 //                switch result {
@@ -138,6 +135,8 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func didTapLogIn() {
+        print("work")
+        viewModel.pushLoginView()
 //        didTapKeyboardDone()
 //        let vc = SignUpViewController()
 //        vc.title = "Create Account"
@@ -145,16 +144,22 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isValidEmail(_ email: String) -> Bool {
-            // Define the regular expression pattern for email validation
             let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
             
-            // Create a regular expression object with the email pattern
             guard let regex = try? NSRegularExpression(pattern: emailRegex) else {
                 return false
             }
-            
-            // Match the email against the regular expression pattern
+        
             let range = NSRange(location: 0, length: email.utf16.count)
             return regex.firstMatch(in: email, options: [], range: range) != nil
         }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        emailField.resignFirstResponder()
+        return true
+    }
 }

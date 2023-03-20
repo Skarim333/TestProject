@@ -101,7 +101,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
 
     @objc private func touchLikeButton() {
         print("SELECTED")
-        viewModel.addCart()
+        AuthManager.shared.signOut()
     }
 }
 
