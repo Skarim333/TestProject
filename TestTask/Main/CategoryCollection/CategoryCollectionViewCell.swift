@@ -24,25 +24,24 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             select(isSelect: viewModel.isSelectCell)
         }
     }
-    
     private let iconView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 0.933, green: 0.937, blue: 0.957, alpha: 1)
         return view
     }()
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-//        imageView.backgroundColor = .red
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1)
         return imageView
     }()
     
     private let nameCategoryLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 7)
+        label.font = UIFont.systemFont(ofSize: 8)
+        label.textColor = UIColor(red: 0.651, green: 0.655, blue: 0.671, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,35 +53,31 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        setup()
     }
     
     private func setup() {
         backgroundColor = .none
-        
         addSubview(iconView)
+        addSubview(iconImageView)
         addSubview(nameCategoryLabel)
-        iconView.addSubview(iconImageView)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        iconView.frame = CGRect(x: 0, y: 0, width: 42, height: 58)
-        nameCategoryLabel.frame = CGRect(x: 0, y: iconView.bottom, width: width, height: 7)
-        iconImageView.frame = CGRect(x: 0, y: 0, width: 42, height: 38)
+        iconView.frame = CGRect(x: 4, y: 0, width: 42, height: 38)
+        iconImageView.frame = CGRect(x: 14, y: 8, width: 22, height: 22)
+        nameCategoryLabel.frame = CGRect(x: 0, y: iconImageView.bottom+14, width: width, height: 8)
         iconImageView.clipsToBounds = true
-        iconImageView.layer.cornerRadius = iconView.frame.width / 2
+        iconView.layer.cornerRadius = iconView.frame.width / 2
     }
     
     private func select(isSelect: Bool) {
         if isSelect {
-            nameCategoryLabel.textColor = UIColor(named: "orange") ?? .black
-            iconView.backgroundColor = UIColor(named: "orange") ?? .white
-            iconImageView.tintColor = .white
+            nameCategoryLabel.textColor = .gray
+            iconImageView.tintColor = .gray
         } else {
-            nameCategoryLabel.textColor = .black
-            iconView.backgroundColor = .white
-            iconImageView.tintColor = .systemGray2
+            nameCategoryLabel.textColor = UIColor(red: 0.651, green: 0.655, blue: 0.671, alpha: 1)
+            iconImageView.tintColor = UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1)
         }
     }
 }

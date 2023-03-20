@@ -26,7 +26,7 @@ final class AppCoordinator: Coordinator {
             childCoordinators.append(tabBarCoordinator)
             tabBarCoordinator.start()
 //        } else {
-//            let signInCordinator = SignInCoordinator(navigationController: navigationController)
+//            let signInCordinator = LogInCoordinator(navigationController: navigationController)
 //            childCoordinators.append(signInCordinator)
 //            signInCordinator.start()
 //        }

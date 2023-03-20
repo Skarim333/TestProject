@@ -8,9 +8,13 @@
 import UIKit
 
 final class SignInViewController: UIViewController, UITextFieldDelegate {
+    
+    var viewModel: SignInViewModelProtocol!
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign in"
+        label.font = UIFont.systemFont(ofSize: 26)
         return label
     }()
     
@@ -19,9 +23,10 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
     private let emailField = AuthField(type: .email)
     
     private let signInButton = AuthButton(type: .signIn, title: "Sign In")
-    private let logInButton = AuthButton(type: .signUp, title: "Log In")
-    private let googleButton = AuthButton(type: .signIn, title: "Sing in with Google")
-    private let appleButton = AuthButton(type: .signIn, title: "Sing in with Apple")
+    private let logInButton = AuthButton(type: .logIn, title: "Log in")
+    private let loginLabel = CustomLabel(text: "Already have an account?", alignment: .left, fontSize: 9, weight: .medium, textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
+    private let googleButton = AuthButton(type: .google, title: "Sing in with Google")
+    private let appleButton = AuthButton(type: .google, title: "Sing in with Apple")
     
     private let googleImage = UIImageView(image: UIImage(named: "google"))
     private let appleImage = UIImageView(image: UIImage(named: "apple"))
@@ -47,16 +52,18 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(emailField)
         view.addSubview(signInButton)
         view.addSubview(logInButton)
+        view.addSubview(loginLabel)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        titleLabel.frame = CGRect(x: 142.7, y: 155.93, width: 87.52, height: 25.3)
+        titleLabel.frame = CGRect(x: 142.7, y: 155.93, width: 87.52, height: 28)
         firstNameField.frame = CGRect(x: 44, y: 259, width: 289, height: 29)
         lastNameField.frame = CGRect(x: 44, y: 323, width: 289, height: 29)
         emailField.frame = CGRect(x: 44, y: 387, width: 289, height: 29)
         signInButton.frame = CGRect(x: 43, y: 451, width: 289, height: 46)
-        logInButton.frame = CGRect(x: 173.6, y: 514.43, width: 28, height: 9.57)
+        logInButton.frame = CGRect(x: 173.6, y: 514, width: 28, height: 10)
+        loginLabel.frame = CGRect(x: 42, y: 514, width: 123, height: 10)
         googleImage.frame = CGRect(x: 99, y: 598, width: 23.83, height: 24.22)
         appleImage.frame = CGRect(x: 99, y: 660, width: 18.38, height: 21.87)
         googleButton.frame = CGRect(x: 134.49, y: 606.92, width: 112.82, height: 11.48)
