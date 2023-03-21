@@ -26,7 +26,7 @@ class PasswordTextField: UITextField {
         self.textAlignment = .center
         self.returnKeyType = .go
         self.autocorrectionType = .no
-        self.attributedPlaceholder = NSAttributedString(string:  placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.482, green: 0.482, blue: 0.482, alpha: 1),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)])
+        self.attributedPlaceholder = NSAttributedString(string:  placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.482, green: 0.482, blue: 0.482, alpha: 1),NSAttributedString.Key.font: UIFont.montserrat(size: 11, weight: .medium)!])
         self.autocapitalizationType = .none
         self.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
         self.layer.cornerRadius = 14

@@ -8,9 +8,13 @@
 import Foundation
 
 protocol LogInViewModelProtocol {
-    
+    func pushMainView()
 }
 
 class LogInViewModel: LogInViewModelProtocol {
     var coordinator: LogInCoordinator?
+    
+    func pushMainView(){
+        coordinator?.didFinishLoggingIn()
+    }
 }

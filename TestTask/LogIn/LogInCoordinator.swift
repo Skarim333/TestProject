@@ -27,14 +27,21 @@ final class LogInCoordinator: Coordinator {
         navigationController.pushViewController(logInViewController, animated: true)
         navigationController.isNavigationBarHidden = false
     }
-    
-    
+ 
     func didFinish() {
         parentCoordinator?.childDidFinish(self)
     }
     
     func didFinishDetailScene() {
         navigationController.popViewController(animated: true)
+    }
+ 
+    func didFinishLoggingIn() {
+        parentCoordinator?.childDidFinish(self)
+        navigationController.setNavigationBarHidden(true, animated: true)
+        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
+        parentCoordinator?.childCoordinators.append(tabBarCoordinator)
+        tabBarCoordinator.start()
     }
 }
 

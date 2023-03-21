@@ -10,12 +10,42 @@ import UIKit
 class DetailsViewController: UIViewController {
     var viewModel: DetailsViewModelProtocol!
     
-    private let nameLabel = CustomLabel(text: "Reebok Classic sneckers", alignment: .natural, fontSize: 14, weight: .semibold, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1),numberOfLines: 2)
-    private let priceLabel = CustomLabel(text: "24$", alignment: .right, fontSize: 12, weight: .medium, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
-    private let descriptionLabel = CustomLabel(text: "Shoes inspired by 80s running shoes are still relevant today", alignment: .natural, fontSize: 8, weight: .medium, textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
-    private let ratingLabel = CustomLabel(text: "3.9", alignment: .center, fontSize: 8, weight: .medium, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
-    private let reviewsLabel = CustomLabel(text: "(4000 reviews)", alignment: .left, fontSize: 8, weight: .medium, textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
-    private let colorLabel = CustomLabel(text: "Color", alignment: .left, fontSize: 9, weight: .semibold, textColor: UIColor(red: 0.451, green: 0.451, blue: 0.451, alpha: 1))
+    private let nameLabel = CustomLabel(
+        text: "Reebok Classic sneckers",
+        alignment: .natural,
+        fontSize: 14,
+        weight: .semibold,
+        textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1),numberOfLines: 2)
+    private let priceLabel = CustomLabel(
+        text: "24$",
+        alignment: .right,
+        fontSize: 12,
+        weight: .medium,
+        textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
+    private let descriptionLabel = CustomLabel(
+        text: "Shoes inspired by 80s running shoes are still relevant today",
+        alignment: .natural,
+        fontSize: 8,
+        weight: .medium,
+        textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
+    private let ratingLabel = CustomLabel(
+        text: "3.9",
+        alignment: .center,
+        fontSize: 8,
+        weight: .medium,
+        textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
+    private let reviewsLabel = CustomLabel(
+        text: "(4000 reviews)",
+        alignment: .left,
+        fontSize: 8,
+        weight: .medium,
+        textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
+    private let colorLabel = CustomLabel(
+        text: "Color",
+        alignment: .left,
+        fontSize: 9,
+        weight: .semibold,
+        textColor: UIColor(red: 0.451, green: 0.451, blue: 0.451, alpha: 1))
     private let starImageView = UIImageView(image: UIImage(named: "star"))
     
     private let addToCardView = AddToCardView()

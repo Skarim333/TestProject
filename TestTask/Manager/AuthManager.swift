@@ -67,9 +67,9 @@ import UIKit
           return SessionManager.shared.currentUser != nil
       }
      
-      public func logIn(email: String, password: String) -> Result<String, Error> {
+      public func logIn(firstName: String, password: String) -> Result<String, Error> {
           // Check if user with the given email exists
-          guard let user = UserManager.shared.findUserByEmail(email) else {
+          guard let user = DatabaseManager.shared.findUserByFirstName(firstName) else {
               return .failure(AuthError.userNotFound)
           }
          
@@ -82,14 +82,20 @@ import UIKit
           let token = UUID().uuidString
          
           // Store token and user email in the session manager
-          SessionManager.shared.startSession(token: token, email: email)
+          SessionManager.shared.startSession(token: token, firstName: firstName)
          
           return .success(token)
       }
      
-      public func signIn(firstName: String, lastName: String, email: String) {
-          DatabaseManager.shared.saveUser(firstName: firstName, lastName: lastName, email: email, password: "1")
-          SessionManager.shared.startSession(token: UUID().uuidString, email: email)
+     public func signIn(firstName: String, lastName: String, email: String, password: String) -> Result<String, Error>  {
+          DatabaseManager.shared.saveUser(firstName: firstName, lastName: lastName, email: email, password: password)
+         
+         let token = UUID().uuidString
+        
+         // Store token and user email in the session manager
+         SessionManager.shared.startSession(token: token, firstName: firstName)
+        
+         return .success(token)
       }
      
       public func signOut() {
@@ -97,43 +103,44 @@ import UIKit
       }
  }
 
- class UserManager {
-      private var users: [User] = []
-      static let shared = UserManager()
-     
-      func createUser(firstName: String, lastName: String, email: String, password: String) -> Result<User, Error> {
-          guard !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else {
-              return .failure(AuthError.invalidInput)
-          }
-          if users.contains(where: { $0.email == email }) {
-              return .failure(AuthError.userAlreadyExists)
-          }
-         
-          // Create new user and add it to the list
-          AuthManager.shared.signIn(firstName: firstName, lastName: lastName, email: email)
-          let user = User(firstName: firstName, lastName: lastName, email: email, password: password)
-          users.append(user)
-         
-          return .success(user)
-      }
-     
-      func findUserByEmail(_ email: String) -> User? {
-          return users.first(where: { $0.email == email })
-      }
- }
+// class UserManager {
+//      private var users: [User] = []
+//      static let shared = UserManager()
+//
+//      func createUser(firstName: String, lastName: String, email: String, password: String) -> Result<User, Error> {
+//          guard !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else {
+//              return .failure(AuthError.invalidInput)
+//          }
+//          if users.contains(where: { $0.firstName == firstName }) {
+//              return .failure(AuthError.userAlreadyExists)
+//          }
+//
+//          // Create new user and add it to the list
+//          AuthManager.shared.signIn(firstName: firstName, lastName: lastName, email: email)
+//          let user = User(firstName: firstName, lastName: lastName, email: email, password: password)
+//          users.append(user)
+//
+//          return .success(user)
+//      }
+//
+//      func findUserByFirstName(_ firstName: String) -> User? {
+//          print(users)
+//          return users.first(where: { $0.firstName == firstName })
+//      }
+// }
 
- class AuthManagerb {
-      static let shared = AuthManagerb()
-      private init() {}
-     
-      func logOut() {
-          SessionManager.shared.endSession()
-      }
-     
-      var isLoggedIn: Bool {
-          return SessionManager.shared.currentUser != nil
-      }
- }
+// class AuthManagerb {
+//      static let shared = AuthManagerb()
+//      private init() {}
+//     
+//      func logOut() {
+//          SessionManager.shared.endSession()
+//      }
+//     
+//      var isLoggedIn: Bool {
+//          return SessionManager.shared.currentUser != nil
+//      }
+// }
 
 // class SessionManager {
 //      static let shared = SessionManager()
@@ -178,28 +185,28 @@ class SessionManager {
     private init() {}
 
     var currentUser: User? {
-        guard let email = currentUserEmail else { return nil }
-        return databaseManager.findUserByEmail(email)
+        guard let firstName = currentUserFirstName else { return nil }
+        return databaseManager.findUserByFirstName(firstName)
     }
 
-    private var currentUserEmail: String? {
-        return UserDefaults.standard.string(forKey: "currentUserEmail")
+    private var currentUserFirstName: String? {
+        return UserDefaults.standard.string(forKey: "currentUserFirstName")
     }
 
     var currentSession: String? {
-        return sessions.first(where: { $1 == currentUserEmail })?.key
+        return sessions.first(where: { $1 == currentUserFirstName })?.key
     }
 
-    func startSession(token: String, email: String) {
-        sessions[token] = email
-        UserDefaults.standard.set(email, forKey: "currentUserEmail")
+    func startSession(token: String, firstName: String) {
+        sessions[token] = firstName
+        UserDefaults.standard.set(firstName, forKey: "currentUserFirstName")
     }
 
     func endSession() {
         if let token = currentSession {
             sessions.removeValue(forKey: token)
         }
-        UserDefaults.standard.removeObject(forKey: "currentUserEmail")
+        UserDefaults.standard.removeObject(forKey: "currentUserFirstName")
     }
 }
 
@@ -209,7 +216,11 @@ class SessionManager {
      
      private let userDefaults = UserDefaults.standard
      
-     private init() {}
+     private init() {
+         if !userExists(firstName: "root", password: "root") {
+             saveUser(firstName: "root", lastName: "", email: "", password: "root")
+         }
+     }
      enum SettingKeys: String {
              case users
              case activeUser
@@ -222,9 +233,9 @@ class SessionManager {
          saveUsers(users)
      }
      
-     func findUserByEmail(_ email: String) -> User? {
+     func findUserByFirstName(_ firstName: String) -> User? {
          let users = loadUsers()
-         return users.first(where: { $0.email == email })
+         return users.first(where: { $0.firstName == firstName })
      }
      
      func loadUsers() -> [User] {
@@ -251,8 +262,13 @@ class SessionManager {
      }
      
      func deleteAllUsers() {
-             userDefaults.removeObject(forKey: SettingKeys.users.rawValue)
-         }
+         userDefaults.removeObject(forKey: SettingKeys.users.rawValue)
+     }
+     
+     func userExists(firstName: String, password: String) -> Bool {
+         let users = loadUsers()
+         return users.contains { $0.firstName == firstName && $0.password == password }
+     }
  }
 enum AuthError: Error {
 case invalidInput

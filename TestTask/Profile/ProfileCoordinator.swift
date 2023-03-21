@@ -36,4 +36,25 @@ final class ProfileCoordinator: Coordinator {
     func didFinishDetailScene() {
         navigationController.popViewController(animated: true)
     }
+    
+//    func didFinishProfile() {
+//        parentCoordinator?.childDidFinish(self)
+//        navigationController.setNavigationBarHidden(true, animated: true)
+//        let signInCordinator = SignInCoordinator(navigationController: navigationController)
+//        childCoordinators.append(signInCordinator)
+//        signInCordinator.start()
+//    }
+//
+//    func didFinishProfile() {
+//             parentCoordinator?.childDidFinish(self)
+//             navigationController.setNavigationBarHidden(true, animated: true)
+//             if let tabBarController = parentCoordinator?.tabBarController {
+//                 navigationController.setViewControllers([tabBarController], animated: false)
+//             }
+//         }
+    func didFinishProfile() {
+            parentCoordinator?.childDidFinish(self)
+        parentCoordinator?.parentCoordinator?.childDidFinish(parentCoordinator!)
+        parentCoordinator?.parentCoordinator?.start()
+        }
 }

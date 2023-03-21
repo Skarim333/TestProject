@@ -20,7 +20,9 @@ class CategoryView: UIView {
     
     private let searchTextField: UITextField = {
         let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string:  "What are you looking for?", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)])
+        textField.attributedPlaceholder = NSAttributedString(
+            string:  "What are you looking for?",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1),NSAttributedString.Key.font: UIFont.montserrat(size: 12, weight: .medium)!])
         textField.rightView = UIImageView(image:  UIImage(systemName: "magnifyingglass"))
         textField.rightViewMode = .always
         textField.clearButtonMode = .whileEditing
@@ -86,70 +88,10 @@ extension CategoryView: UICollectionViewDelegate {
 
 extension CategoryView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 60)
+        return CGSize(width: 52, height: 60)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 13
     }
 }
-/*
- class MyViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
-     
-     let searchBar = UISearchBar()
-     let tableView = UITableView()
-     var filteredWords = [String]()
-     
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         
-         searchBar.delegate = self
-         tableView.delegate = self
-         tableView.dataSource = self
-         
-         view.addSubview(searchBar)
-         view.addSubview(tableView)
-         
-         searchBar.translatesAutoresizingMaskIntoConstraints = false
-         tableView.translatesAutoresizingMaskIntoConstraints = false
-         
-         // Set constraints for searchBar and tableView here
-         
-     }
-     
-     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-             self?.fetchMatchingWords(searchText)
-         }
-     }
-     
-     func fetchMatchingWords(_ searchText: String) {
-         NetworkManager.shared.fetchMatchingWords(for: searchText) { [weak self] result in
-             switch result {
-             case .success(let words):
-                 self?.filteredWords = words.filter { $0.hasPrefix(searchText) }
-                 self?.tableView.reloadData()
-             case .failure(let error):
-                 print(error)
-             }
-         }
-     }
-     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return filteredWords.count
-     }
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = UITableViewCell()
-         cell.textLabel?.text = filteredWords[indexPath.row]
-         return cell
-     }
-     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         searchBar.text = filteredWords[indexPath.row]
-         tableView.isHidden = true
-     }
-     
- }
-
- */

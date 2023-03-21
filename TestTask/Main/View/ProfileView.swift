@@ -19,7 +19,7 @@ class ProfileView: UIView {
     private let locationLabel: UILabel = {
         let label = UILabel()
         label.text = "Location"
-        label.font = UIFont.boldSystemFont(ofSize: 10)
+        label.font = UIFont.montserrat(size: 10, weight: .bold)
         label.textAlignment = .left
         label.textColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1)
         return label

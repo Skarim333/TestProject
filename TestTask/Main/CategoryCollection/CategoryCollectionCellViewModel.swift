@@ -50,9 +50,4 @@ class CategoryCollectionCellViewModel: CategoryCollectionCellViewModelProtocol {
     
     var changedViewModel: ((CategoryCollectionCellViewModelProtocol) -> Void)?
     
-//    func cellViewModel(forIndexPath indexPath: IndexPath) -> [String] {
-//        let image = images[indexPath.row]
-//        let name = names[indexPath.row]
-//        return [image, name]
-//    }
 }

@@ -14,7 +14,7 @@ final class SignInViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign in"
-        label.font = UIFont.systemFont(ofSize: 26)
+        label.font = UIFont.montserrat(size: 26, weight: .medium)
         return label
     }()
     
@@ -105,42 +105,18 @@ final class SignInViewController: UIViewController {
             present(alert, animated: true)
             return
         }
-        print("SECCESS")
-        let createUserResult = UserManager.shared.createUser(firstName: firstName, lastName: lastName, email: email, password: "password")
+        let createUserResult = AuthManager.shared.signIn(firstName: firstName, lastName: lastName, email: email, password: "password")
         switch createUserResult {
-        case .success(let user):
-            print("Created user successfully: \(user)")
+        case .success(_):
+            viewModel.pushMainView()
         case .failure(let error):
-            print("Failed to create user with error: \(error)")
+            print(error)
         }
-//        AuthManager.shared.signIn(firstName: firstName, lastName: lastName, email: email)
-//        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success:
-//                    HapticsManager.shared.vibrate(for: .success)
-//                    self?.dismiss(animated: true, completion: nil)
-//
-//                case .failure:
-//                    HapticsManager.shared.vibrate(for: .error)
-//                    let alert = UIAlertController(
-//                        title: "Sign In Failed",
-//                        message: "Please check your email and password to try again.", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-//                    self?.present(alert, animated: true)
-//                    self?.passwordField.text = nil
-//                }
-//            }
-//        }
     }
 
     @objc func didTapLogIn() {
         print("work")
         viewModel.pushLoginView()
-//        didTapKeyboardDone()
-//        let vc = SignUpViewController()
-//        vc.title = "Create Account"
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func isValidEmail(_ email: String) -> Bool {

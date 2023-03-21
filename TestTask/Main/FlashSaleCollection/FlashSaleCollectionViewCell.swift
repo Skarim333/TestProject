@@ -47,7 +47,7 @@ class FlashSaleCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.montserrat(size: 10, weight: .medium)
         return label
     }()
     
@@ -55,7 +55,7 @@ class FlashSaleCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 11)
+        label.font = UIFont.montserrat(size: 11, weight: .medium)
         return label
     }()
     
@@ -63,7 +63,7 @@ class FlashSaleCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.montserrat(size: 12, weight: .medium)
         return label
     }()
     
@@ -77,7 +77,7 @@ class FlashSaleCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.montserrat(size: 10, weight: .medium)
         return label
     }()
     

@@ -16,3 +16,16 @@ extension UIImageView {
         self.contentMode = .scaleAspectFill
     }
 }
+
+extension UIImage {
+    
+        func resized(to size: CGSize) -> UIImage {
+            UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+            draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            return resizedImage
+        }
+    
+
+}
