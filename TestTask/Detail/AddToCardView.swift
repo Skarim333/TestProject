@@ -23,7 +23,7 @@ class AddToCardView: UIView {
         let button = UIButton()
         button.setTitle("−", for: .normal)
         button.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.montserrat(size: 15, weight: .medium)
         button.clipsToBounds = true
         return button
     }()
@@ -31,7 +31,7 @@ class AddToCardView: UIView {
     private let addCardButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        button.titleLabel?.font = UIFont.montserrat(size: 10, weight: .medium)
         button.clipsToBounds = true
         return button
     }()

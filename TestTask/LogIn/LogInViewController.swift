@@ -11,7 +11,11 @@ class LogInViewController: UIViewController {
     
     var viewModel: LogInViewModelProtocol!
     
-    private let titleLabel = CustomLabel(text: "Welcome back", alignment: .center, fontSize: 21, weight: .bold, textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
+    private let titleLabel = CustomLabel(
+        text: "Welcome back",
+        alignment: .center,
+        fontSize: 21, weight: .bold,
+        textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
     
     private let firstNameField = AuthField(type: .name)
     private let passwordField = PasswordTextField(placeholder: "Password")
@@ -74,36 +78,23 @@ class LogInViewController: UIViewController {
     @objc func didTapSignIn() {
         didTapKeyboardDone()
 
-//        guard let email = emailField.text,
-//              let password = passwordField.text,
-//              !email.trimmingCharacters(in: .whitespaces).isEmpty,
-//              !password.trimmingCharacters(in: .whitespaces).isEmpty,
-//              password.count >= 6 else {
-//
-//            let alert = UIAlertController(title: "Woops", message: "Please enter a valid email and password to sign in.", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-//            present(alert, animated: true)
-//            return
-//        }
-//
-//        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success:
-//                    HapticsManager.shared.vibrate(for: .success)
-//                    self?.dismiss(animated: true, completion: nil)
-//
-//                case .failure:
-//                    HapticsManager.shared.vibrate(for: .error)
-//                    let alert = UIAlertController(
-//                        title: "Sign In Failed",
-//                        message: "Please check your email and password to try again.", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-//                    self?.present(alert, animated: true)
-//                    self?.passwordField.text = nil
-//                }
-//            }
-//        }
+        guard let firstName = firstNameField.text,
+              let password = passwordField.text,
+              !firstName.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 4 else {
+            let alert = UIAlertController(title: "Woops", message: "Please enter a valid email and password to sign in.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        let result = AuthManager.shared.logIn(firstName: firstName, password: password)
+        switch result {
+        case .success(_):
+            viewModel.pushMainView()
+        case .failure(let error):
+            print(error)
+        }
     }
 
     @objc func didTapLogIn() {

@@ -8,9 +8,13 @@
 import Foundation
 
 protocol ProfileViewModelProtocol {
-    
+    func logOut()
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
     var coordinator: ProfileCoordinator?
+    
+    func logOut() {
+        coordinator?.didFinishProfile()
+    }
 }

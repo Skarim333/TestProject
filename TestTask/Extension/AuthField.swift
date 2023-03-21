@@ -28,6 +28,7 @@ class AuthField: UITextField {
     init(type: FieldType) {
         self.type = type
         super.init(frame: .zero)
+        self.font = UIFont.montserrat(size: 11, weight: .medium)
         configureUI()
     }
     
@@ -38,7 +39,7 @@ class AuthField: UITextField {
     private func configureUI() {
         autocapitalizationType = .none
         backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        attributedPlaceholder = NSAttributedString(string:  type.title, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.482, green: 0.482, blue: 0.482, alpha: 1),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)])
+        attributedPlaceholder = NSAttributedString(string:  type.title, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.482, green: 0.482, blue: 0.482, alpha: 1),NSAttributedString.Key.font: UIFont.montserrat(size: 11, weight: .medium)!])
         layer.cornerRadius = 14
         layer.masksToBounds = true
 //        placeholder = type.title

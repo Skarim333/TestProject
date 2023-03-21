@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainViewModelProtocol: AnyObject {
-    var title: String { get }
+    
 }
 
 class MainViewModel: MainViewModelProtocol {
@@ -29,10 +29,6 @@ class MainViewModel: MainViewModelProtocol {
         selectedCategory = .Phones
         self.networkManager = networkManager
         fetchData()
-    }
-    
-    var title: String {
-        return "Zihuatanejo, Gro"
     }
     
     private func fetchData() {

@@ -32,7 +32,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 8)
+        label.font = UIFont.montserrat(size: 8, weight: .medium)
         return label
     }()
 
@@ -40,7 +40,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 9)
+        label.font = UIFont.montserrat(size: 9, weight: .medium)
         return label
     }()
     
@@ -54,7 +54,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor(red: 0.027, green: 0.024, blue: 0.016, alpha: 1)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 7)
+        label.font = UIFont.montserrat(size: 7, weight: .medium)
         return label
     }()
     
@@ -100,8 +100,7 @@ class LatestCollectionViewCell: UICollectionViewCell {
     }
 
     @objc private func touchLikeButton() {
-        print("SELECTED")
-        AuthManager.shared.signOut()
+    
     }
 }
 

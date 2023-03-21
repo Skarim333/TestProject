@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1DD38429CA3545001617F8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */; };
+		5D1DD38529CA3545001617F8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DD38329CA3545001617F8 /* Montserrat-Bold.ttf */; };
+		5D1DD38729CA35DD001617F8 /* UIFotn + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */; };
 		5D2AF09129C34B0B00481A7F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09029C34B0B00481A7F /* CategoryView.swift */; };
 		5D2AF09329C34CC300481A7F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09229C34CC300481A7F /* NavigationView.swift */; };
 		5D2AF09729C34D0A00481A7F /* MainCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */; };
@@ -66,6 +69,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		5D1DD38329CA3545001617F8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFotn + Extension.swift"; sourceTree = "<group>"; };
 		5D2AF09029C34B0B00481A7F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		5D2AF09229C34CC300481A7F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellHeaderView.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				5D79CE1F29C498EE004FC8D1 /* Detail */,
 				5D79CE2429C49FD9004FC8D1 /* Profile */,
 				5D7CC8BE29BB65D500ABCD61 /* Extension */,
+				5D81F4EE29CA2666009878DF /* Fonts */,
 				5D78FABA29BB124C0006848E /* Assets.xcassets */,
 				5D78FABC29BB124C0006848E /* LaunchScreen.storyboard */,
 				5D78FABF29BB124C0006848E /* Info.plist */,
@@ -237,6 +244,7 @@
 				5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */,
 				5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */,
 				5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */,
+				5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -250,6 +258,15 @@
 				5D7F2A0D29BE45E900793645 /* CategoryProduct.swift */,
 			);
 			path = CategoryCollection;
+			sourceTree = "<group>";
+		};
+		5D81F4EE29CA2666009878DF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5D1DD38329CA3545001617F8 /* Montserrat-Bold.ttf */,
+				5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5D874C5529BF3AB300E62ADA /* LatestCollection */ = {
@@ -395,7 +412,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1DD38529CA3545001617F8 /* Montserrat-Bold.ttf in Resources */,
 				5D78FABE29BB124C0006848E /* LaunchScreen.storyboard in Resources */,
+				5D1DD38429CA3545001617F8 /* Montserrat-Medium.ttf in Resources */,
 				5D78FABB29BB124C0006848E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +439,7 @@
 				5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */,
 				5D7888DA29BBBBC9007FA886 /* AppCoordinator.swift in Sources */,
 				5DB03DF729BCB5E5003BEC44 /* MainViewController.swift in Sources */,
+				5D1DD38729CA35DD001617F8 /* UIFotn + Extension.swift in Sources */,
 				5D79CE2C29C4B22C004FC8D1 /* CustomView.swift in Sources */,
 				5D79CE2129C4991D004FC8D1 /* DetailCoordinator.swift in Sources */,
 				5D7AB98229C5E12F00336EF7 /* AddToCardView.swift in Sources */,

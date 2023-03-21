@@ -10,7 +10,7 @@ import UIKit
 final class TabBarCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
-    weak var parentCoordinator: MainCoordinator?
+    weak var parentCoordinator: AppCoordinator?
     
     private let navigationController: UINavigationController
     var tabBarController: CustomTabBarController
@@ -21,7 +21,7 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func start() {
-        let pages: [TabBarPages] = [.main, .favourite, .cart, .chat, .profile]
+        let pages: [TabBarPages] = [.main, .favorite, .cart, .chat, .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         prepareTabBarController(withTabControllers: controllers)
     }
@@ -36,40 +36,32 @@ final class TabBarCoordinator: Coordinator {
     private func getTabController(_ page: TabBarPages) -> UINavigationController {
         let navigationController = UINavigationController()
         
-        let tabBarItem = tabBarController.createTabBarItem(withImage: page.pageImageValue(), tag: page.pageOrderNumber())
+        let tabBarItem = tabBarController.createTabBarItem(withImage: page.pageImageValue(), tag: page.pageOrderNumber(), selectedImage: page.pageSelectImageValue())
         navigationController.tabBarItem = tabBarItem
         
         switch page {
         case .main:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
-        case .favourite:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
+            let mainCoordinator = MainCoordinator(navigationController: navigationController)
+            mainCoordinator.parentCoordinator = self
+            childCoordinators.append(mainCoordinator)
+            mainCoordinator.start()
+        case .favorite:
+            let viewController = UIViewController()
+            navigationController.pushViewController(viewController, animated: true)
+            navigationController.isNavigationBarHidden = false
         case .cart:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
+            let viewController = UIViewController()
+            navigationController.pushViewController(viewController, animated: true)
+            navigationController.isNavigationBarHidden = false
         case .chat:
-            
-                let mainCoordinator = MainCoordinator(navigationController: navigationController)
-                mainCoordinator.parentCoordinator = self
-                childCoordinators.append(mainCoordinator)
-                mainCoordinator.start()
+            let viewController = UIViewController()
+            navigationController.pushViewController(viewController, animated: true)
+            navigationController.isNavigationBarHidden = false
         case .profile:
-            
-                let profileCoordinator = ProfileCoordinator(navigationController: navigationController)
-                profileCoordinator.parentCoordinator = self
-                childCoordinators.append(profileCoordinator)
-                profileCoordinator.start()
+            let profileCoordinator = ProfileCoordinator(navigationController: navigationController)
+            profileCoordinator.parentCoordinator = self
+            childCoordinators.append(profileCoordinator)
+            profileCoordinator.start()
         }
         
         return navigationController

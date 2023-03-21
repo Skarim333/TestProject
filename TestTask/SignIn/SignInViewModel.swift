@@ -9,6 +9,7 @@ import Foundation
 
 protocol SignInViewModelProtocol: AnyObject {
     func pushLoginView()
+    func pushMainView()
     
 }
 
@@ -18,5 +19,9 @@ class SignInViewModel: SignInViewModelProtocol {
     
     func pushLoginView() {
         coordinator?.startLognInScene()
+    }
+    
+    func  pushMainView() {
+        coordinator?.didFinishLoggingIn()
     }
 }

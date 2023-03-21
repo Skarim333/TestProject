@@ -107,7 +107,6 @@ extension MainViewController {
     fileprivate enum Headers: Int {
         case latest
         case flashSale
-        case bestSeller
         case none
         
         var title: String {
@@ -116,8 +115,6 @@ extension MainViewController {
                 return "Latest"
             case .flashSale:
                 return "Flash Sale"
-            case .bestSeller:
-                return "Best seller"
             case .none:
                 return ""
             }
@@ -129,8 +126,6 @@ extension MainViewController {
                 return "View All"
             case .flashSale:
                 return "View All"
-            case .bestSeller:
-                return "see more"
             case .none:
                 return ""
             }
@@ -140,7 +135,6 @@ extension MainViewController {
             switch section {
             case 0: self = .latest
             case 1: self = .flashSale
-            case 2: self = .bestSeller
             default: self = .none
             }
         }

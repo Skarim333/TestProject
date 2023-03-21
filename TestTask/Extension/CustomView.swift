@@ -18,7 +18,7 @@ class CustomView: UIView {
     private let leftLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.montserrat(size: 14, weight: .medium)
         return label
     }()
     
@@ -31,7 +31,7 @@ class CustomView: UIView {
     private let rightLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.montserrat(size: 14, weight: .medium)
         return label
     }()
     
@@ -46,14 +46,14 @@ class CustomView: UIView {
         leftLabel.text = leftText
         addSubview(leftLabel)
         
-        // Set up right views
+        
         if let rightImage = rightImage {
             rightImageView.image = rightImage
             addSubview(rightImageView)
         } else if let rightText = rightText {
             rightLabel.text = rightText
             addSubview(rightLabel)
-        }
+        } 
     }
     
     required init(coder: NSCoder) {

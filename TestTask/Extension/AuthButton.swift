@@ -53,13 +53,13 @@ class AuthButton: UIButton {
         case .signIn:
             backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1)
             setTitleColor(.white, for: .normal)
-            titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+            titleLabel?.font = .montserrat(size: 15, weight: .semibold)
             layer.cornerRadius = 15
             layer.masksToBounds = true
         case .signUp:
             backgroundColor = .clear
             setTitleColor(.blue, for: .normal)
-            titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+            titleLabel?.font = .montserrat(size: 15, weight: .semibold)
             layer.cornerRadius = 15
             layer.masksToBounds = true
         case .plain:
@@ -68,15 +68,15 @@ class AuthButton: UIButton {
         case .logIn:
             setTitleColor(UIColor(red: 0.145, green: 0.31, blue: 0.902, alpha: 1), for: .normal)
             backgroundColor = .clear
-            titleLabel?.font = .systemFont(ofSize: 9)
+            titleLabel?.font = .montserrat(size: 9, weight: .medium)
         case .google:
             setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             backgroundColor = .clear
-            titleLabel?.font = .systemFont(ofSize: 12)
+            titleLabel?.font = .montserrat(size: 12, weight: .medium)
         case .change:
             setTitleColor(UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1), for: .normal)
             backgroundColor = .clear
-            titleLabel?.font = .systemFont(ofSize: 8)
+            titleLabel?.font = .montserrat(size: 8, weight: .medium)
         }
     }
 }

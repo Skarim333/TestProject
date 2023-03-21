@@ -13,7 +13,7 @@ class MainCellHeaderView: UITableViewHeaderFooterView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = UIFont.montserrat(size: 14, weight: .bold)
         label.textColor = UIColor(red: 0.016, green: 0.016, blue: 0.008, alpha: 1)
         return label
     }()
@@ -21,7 +21,7 @@ class MainCellHeaderView: UITableViewHeaderFooterView {
     private let seeMoreButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1), for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.titleLabel?.font = UIFont.montserrat(size: 10, weight: .medium)
         return button
     }()
     
