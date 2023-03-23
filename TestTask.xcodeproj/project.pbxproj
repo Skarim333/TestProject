@@ -10,6 +10,7 @@
 		5D1DD38429CA3545001617F8 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */; };
 		5D1DD38529CA3545001617F8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DD38329CA3545001617F8 /* Montserrat-Bold.ttf */; };
 		5D1DD38729CA35DD001617F8 /* UIFotn + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */; };
+		5D1DD38929CA6264001617F8 /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DD38829CA6264001617F8 /* SharedView.swift */; };
 		5D2AF09129C34B0B00481A7F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09029C34B0B00481A7F /* CategoryView.swift */; };
 		5D2AF09329C34CC300481A7F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09229C34CC300481A7F /* NavigationView.swift */; };
 		5D2AF09729C34D0A00481A7F /* MainCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */; };
@@ -35,7 +36,7 @@
 		5D79CE2A29C4A03D004FC8D1 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2929C4A03D004FC8D1 /* ProfileCoordinator.swift */; };
 		5D79CE2C29C4B22C004FC8D1 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */; };
 		5D79CE2E29C4D7B3004FC8D1 /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CE2D29C4D7B3004FC8D1 /* Shoe.swift */; };
-		5D7A2B8729BDD1CA00BBBBCA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */; };
+		5D7A2B8729BDD1CA00BBBBCA /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8629BDD1CA00BBBBCA /* SessionManager.swift */; };
 		5D7A2B8929BDE49300BBBBCA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8829BDE49300BBBBCA /* MainViewModel.swift */; };
 		5D7A2B8B29BDE56100BBBBCA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */; };
 		5D7AB98029C5C42D00336EF7 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */; };
@@ -53,8 +54,6 @@
 		5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */; };
 		5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */; };
 		5D874C5929BF3B6700E62ADA /* LatestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */; };
-		5D8BA26429C6075700183BFF /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BA26329C6075700183BFF /* test.swift */; };
-		5D8BA26629C6255C00183BFF /* DetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BA26529C6255C00183BFF /* DetailImageView.swift */; };
 		5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64129C46D08006F2935 /* CustomLabel.swift */; };
 		5D8ED64429C4768F006F2935 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8ED64329C4768F006F2935 /* PasswordTextField.swift */; };
 		5DB03DEF29BCB4EE003BEC44 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */; };
@@ -72,6 +71,7 @@
 		5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		5D1DD38329CA3545001617F8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFotn + Extension.swift"; sourceTree = "<group>"; };
+		5D1DD38829CA6264001617F8 /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		5D2AF09029C34B0B00481A7F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		5D2AF09229C34CC300481A7F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		5D2AF09629C34D0A00481A7F /* MainCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellHeaderView.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		5D79CE2929C4A03D004FC8D1 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5D79CE2D29C4D7B3004FC8D1 /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
-		5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		5D7A2B8629BDD1CA00BBBBCA /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5D7A2B8829BDE49300BBBBCA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -117,8 +117,6 @@
 		5D874C5329BF3AAC00E62ADA /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D874C5629BF3B2900E62ADA /* LatestCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		5D874C5829BF3B6700E62ADA /* LatestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTableViewCell.swift; sourceTree = "<group>"; };
-		5D8BA26329C6075700183BFF /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		5D8BA26529C6255C00183BFF /* DetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageView.swift; sourceTree = "<group>"; };
 		5D8ED64129C46D08006F2935 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		5D8ED64329C4768F006F2935 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		5DB03DEE29BCB4EE003BEC44 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -206,8 +204,7 @@
 				5D79CE2229C49967004FC8D1 /* DetailsViewModel.swift */,
 				5D79CE2029C4991D004FC8D1 /* DetailCoordinator.swift */,
 				5D7AB98129C5E12F00336EF7 /* AddToCardView.swift */,
-				5D8BA26529C6255C00183BFF /* DetailImageView.swift */,
-				5D8BA26329C6075700183BFF /* test.swift */,
+				5D1DD38829CA6264001617F8 /* SharedView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -283,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7CC8B329BB55DF00ABCD61 /* AuthManager.swift */,
-				5D7A2B8629BDD1CA00BBBBCA /* UserManager.swift */,
+				5D7A2B8629BDD1CA00BBBBCA /* SessionManager.swift */,
 				5D7CC8B529BB56C700ABCD61 /* DatabaseManager.swift */,
 				5D7A2B8A29BDE56100BBBBCA /* NetworkService.swift */,
 			);
@@ -445,11 +442,10 @@
 				5D7AB98229C5E12F00336EF7 /* AddToCardView.swift in Sources */,
 				5DDBB49129C09A480047DD67 /* FlashSaleCollectionCellViewModel.swift in Sources */,
 				5D78FACC29BB2F580006848E /* AuthButton.swift in Sources */,
-				5D8BA26629C6255C00183BFF /* DetailImageView.swift in Sources */,
 				5D874C5429BF3AAC00E62ADA /* LatestCollectionViewCell.swift in Sources */,
 				5D78FAB229BB12470006848E /* AppDelegate.swift in Sources */,
 				5D7CC8B629BB56C700ABCD61 /* DatabaseManager.swift in Sources */,
-				5D7A2B8729BDD1CA00BBBBCA /* UserManager.swift in Sources */,
+				5D7A2B8729BDD1CA00BBBBCA /* SessionManager.swift in Sources */,
 				5D2AF09929C34D5100481A7F /* ProfileView.swift in Sources */,
 				5D7D3B8329C38EF500E42975 /* SignInViewModel.swift in Sources */,
 				5D7B5C9D29BE31BA00FB4050 /* FlashSale.swift in Sources */,
@@ -458,11 +454,11 @@
 				5DDBB49329C09A600047DD67 /* FlashSaleTableViewCell.swift in Sources */,
 				5D874C5729BF3B2900E62ADA /* LatestCollectionCellViewModel.swift in Sources */,
 				5DDBB48E29C099EF0047DD67 /* FlashSaleCollectionViewCell.swift in Sources */,
-				5D8BA26429C6075700183BFF /* test.swift in Sources */,
 				5D79CE2A29C4A03D004FC8D1 /* ProfileCoordinator.swift in Sources */,
 				5D7AB98029C5C42D00336EF7 /* UIColor + Extension.swift in Sources */,
 				5DB03DF329BCB584003BEC44 /* SignInCoordinator.swift in Sources */,
 				5DB03DF129BCB529003BEC44 /* TabBarPages.swift in Sources */,
+				5D1DD38929CA6264001617F8 /* SharedView.swift in Sources */,
 				5D79CE1E29C498D1004FC8D1 /* DetailViewController.swift in Sources */,
 				5D8ED64229C46D08006F2935 /* CustomLabel.swift in Sources */,
 				5D7F2A1129BE496000793645 /* CategoryCollectionCellViewModel.swift in Sources */,

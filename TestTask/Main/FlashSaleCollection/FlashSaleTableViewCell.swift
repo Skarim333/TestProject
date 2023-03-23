@@ -28,8 +28,8 @@ class FlashSaleTableViewCell: UITableViewCell {
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     if result {
-                        self.collectionView.isHidden = false
                         self.collectionView.reloadData()
+                        self.collectionView.isHidden = false
                     } else {
                         self.collectionView.isHidden = true
                     }

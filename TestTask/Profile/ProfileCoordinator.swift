@@ -36,25 +36,25 @@ final class ProfileCoordinator: Coordinator {
     func didFinishDetailScene() {
         navigationController.popViewController(animated: true)
     }
-    
 //    func didFinishProfile() {
+//        print(childCoordinators)
 //        parentCoordinator?.childDidFinish(self)
 //        navigationController.setNavigationBarHidden(true, animated: true)
-//        let signInCordinator = SignInCoordinator(navigationController: navigationController)
-//        childCoordinators.append(signInCordinator)
-//        signInCordinator.start()
-//    }
 //
-//    func didFinishProfile() {
-//             parentCoordinator?.childDidFinish(self)
-//             navigationController.setNavigationBarHidden(true, animated: true)
-//             if let tabBarController = parentCoordinator?.tabBarController {
-//                 navigationController.setViewControllers([tabBarController], animated: false)
-//             }
-//         }
+////        navigationController.navigationItem.setHidesBackButton(true, animated: true)
+//        let tabBarCoordinator = SignInCoordinator(navigationController: navigationController)
+//        parentCoordinator?.childCoordinators.append(tabBarCoordinator)
+//        tabBarCoordinator.start()
+//        }
     func didFinishProfile() {
-            parentCoordinator?.childDidFinish(self)
-        parentCoordinator?.parentCoordinator?.childDidFinish(parentCoordinator!)
-        parentCoordinator?.parentCoordinator?.start()
+            if let tabBarCoordinator = parentCoordinator {
+                if let appCoordinator = tabBarCoordinator.parentCoordinator {
+                    appCoordinator.childCoordinators.removeAll()
+                    appCoordinator.start()
+                } else {
+                    parentCoordinator?.childDidFinish(self)
+                }
+            }
         }
+    
 }

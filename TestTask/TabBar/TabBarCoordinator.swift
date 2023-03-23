@@ -10,7 +10,7 @@ import UIKit
 final class TabBarCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
-    weak var parentCoordinator: AppCoordinator?
+    weak var parentCoordinator: AppCoordinator!
     
     private let navigationController: UINavigationController
     var tabBarController: CustomTabBarController
@@ -61,6 +61,8 @@ final class TabBarCoordinator: Coordinator {
             let profileCoordinator = ProfileCoordinator(navigationController: navigationController)
             profileCoordinator.parentCoordinator = self
             childCoordinators.append(profileCoordinator)
+            print(parentCoordinator)
+            print(childCoordinators)
             profileCoordinator.start()
         }
         
@@ -68,8 +70,10 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func didFinishImageryTabBar() {
+        print(childCoordinators)
         childCoordinators = []
         parentCoordinator?.childDidFinish(self)
+        parentCoordinator?.didFinishAllMainScreens()
         navigationController.dismiss(animated: true, completion: nil)
     }
 }

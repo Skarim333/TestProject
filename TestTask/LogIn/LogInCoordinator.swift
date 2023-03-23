@@ -37,11 +37,14 @@ final class LogInCoordinator: Coordinator {
     }
  
     func didFinishLoggingIn() {
-        parentCoordinator?.childDidFinish(self)
-        navigationController.setNavigationBarHidden(true, animated: true)
-        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
-        parentCoordinator?.childCoordinators.append(tabBarCoordinator)
-        tabBarCoordinator.start()
+        if let sigInCoordinator = parentCoordinator {
+            if let appCoordinator = sigInCoordinator.parentCoordinator {
+                appCoordinator.childCoordinators.removeAll()
+                appCoordinator.start()
+            } else {
+                parentCoordinator?.childDidFinish(self)
+            }
+        }
     }
 }
 

@@ -23,16 +23,22 @@ final class AppCoordinator: Coordinator {
         navigationController.setNavigationBarHidden(true, animated: true)
         if shared.isSignedIn {
             let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
+            tabBarCoordinator.parentCoordinator = self
             childCoordinators.append(tabBarCoordinator)
             tabBarCoordinator.start()
         } else {
             let signInCordinator = SignInCoordinator(navigationController: navigationController)
+            signInCordinator.parentCoordinator = self
             childCoordinators.append(signInCordinator)
             signInCordinator.start()
         }
-        
-        
+        print(childCoordinators)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
+    
+    func didFinishAllMainScreens() {
+            childCoordinators.removeAll()
+            start()
+        }
 }
