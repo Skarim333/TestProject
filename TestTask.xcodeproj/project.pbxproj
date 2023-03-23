@@ -177,19 +177,10 @@
 		5D78FAB029BB12470006848E /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				5D8508AA29CCAED000EE3C9F /* Modules */,
+				5D8508AB29CCAEF700EE3C9F /* Common */,
 				5D78FAB129BB12470006848E /* AppDelegate.swift */,
 				5D78FAB329BB12470006848E /* SceneDelegate.swift */,
-				5DB03DEB29BC7362003BEC44 /* Manager */,
-				5DB03DED29BC7378003BEC44 /* Cordinator */,
-				5D7CC8B929BB56F500ABCD61 /* Model */,
-				5DB03DEC29BC736B003BEC44 /* SignIn */,
-				5DB03DFA29BCB90D003BEC44 /* LogIn */,
-				5DB03DFC29BCB94B003BEC44 /* TabBar */,
-				5DB03DFB29BCB93E003BEC44 /* Main */,
-				5D79CE1F29C498EE004FC8D1 /* Detail */,
-				5D79CE2429C49FD9004FC8D1 /* Profile */,
-				5D7CC8BE29BB65D500ABCD61 /* Extension */,
-				5D81F4EE29CA2666009878DF /* Fonts */,
 				5D78FABA29BB124C0006848E /* Assets.xcassets */,
 				5D78FABC29BB124C0006848E /* LaunchScreen.storyboard */,
 				5D78FABF29BB124C0006848E /* Info.plist */,
@@ -233,13 +224,8 @@
 		5D7CC8BE29BB65D500ABCD61 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5D78FAC729BB258D0006848E /* AuthField.swift */,
-				5D8ED64329C4768F006F2935 /* PasswordTextField.swift */,
-				5D78FACB29BB2F580006848E /* AuthButton.swift */,
-				5D8ED64129C46D08006F2935 /* CustomLabel.swift */,
 				5D78FAC929BB26E30006848E /* UIView + Extension.swift */,
 				5D7CC8BF29BB669D00ABCD61 /* UIImageView + Extensions.swift */,
-				5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */,
 				5D7AB97F29C5C42D00336EF7 /* UIColor + Extension.swift */,
 				5D1DD38629CA35DD001617F8 /* UIFotn + Extension.swift */,
 			);
@@ -264,6 +250,44 @@
 				5D1DD38229CA3544001617F8 /* Montserrat-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5D8508A929CCAE8E00EE3C9F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D78FAC729BB258D0006848E /* AuthField.swift */,
+				5D8ED64329C4768F006F2935 /* PasswordTextField.swift */,
+				5D78FACB29BB2F580006848E /* AuthButton.swift */,
+				5D8ED64129C46D08006F2935 /* CustomLabel.swift */,
+				5D79CE2B29C4B22C004FC8D1 /* CustomView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5D8508AA29CCAED000EE3C9F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5DB03DEC29BC736B003BEC44 /* SignIn */,
+				5DB03DFA29BCB90D003BEC44 /* LogIn */,
+				5DB03DFC29BCB94B003BEC44 /* TabBar */,
+				5DB03DFB29BCB93E003BEC44 /* Main */,
+				5D79CE1F29C498EE004FC8D1 /* Detail */,
+				5D79CE2429C49FD9004FC8D1 /* Profile */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5D8508AB29CCAEF700EE3C9F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5DB03DEB29BC7362003BEC44 /* Manager */,
+				5DB03DED29BC7378003BEC44 /* Cordinator */,
+				5D7CC8B929BB56F500ABCD61 /* Model */,
+				5D7CC8BE29BB65D500ABCD61 /* Extension */,
+				5D81F4EE29CA2666009878DF /* Fonts */,
+				5D8508A929CCAE8E00EE3C9F /* Helpers */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		5D874C5529BF3AB300E62ADA /* LatestCollection */ = {
