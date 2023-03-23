@@ -8,6 +8,39 @@
 import UIKit
 
 extension UIColor {
+    
+    static func mainBackView() -> UIColor {
+        return UIColor(hex: "#FAF9FF")!
+    }
+    
+    static func mainGrey() -> UIColor {
+        return UIColor(hex: "#808080")!
+    }
+    
+    static func lightGrey() -> UIColor {
+        return #colorLiteral(red: 0.7019607843, green: 0.7019607843, blue: 0.7647058824, alpha: 1)
+    }
+    
+    static func backDark() -> UIColor {
+        return UIColor(hex: "#181726")!
+    }
+    
+    static func mainBlack() -> UIColor {
+        return UIColor(hex: "#161826")!
+    }
+    
+    static func mainDark() -> UIColor {
+        return UIColor(hex: "#040402")!
+    }
+    
+    static func mainBrown() -> UIColor {
+        return #colorLiteral(red: 0.4666666667, green: 0.1764705882, blue: 0.01176470588, alpha: 1)
+    }
+    
+    static func mainBlue() -> UIColor {
+        return UIColor(hex: "#4E55D7")!
+    }
+    
     convenience init?(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt64()

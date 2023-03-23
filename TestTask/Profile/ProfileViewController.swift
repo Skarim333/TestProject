@@ -17,16 +17,49 @@ class ProfileViewController: UIViewController {
         return imageView
     }()
     
-    private let changeProfileButton = AuthButton(type: .change, title: "Change photo")
-    private let userLabel = CustomLabel(text: "Satria Adhi Pradana", alignment: .center, fontSize: 14, weight: .bold, textColor: UIColor(red: 0.247, green: 0.247, blue: 0.247, alpha: 1))
-    private let uploadButton = AuthButton(type: .signIn, title: "Upload item")
-    private let tradeView = CustomView(leftImage: UIImage(named: "card"), leftText: "Trade store", rightImage: UIImage(named: "rightArrow"))
-    private let paymentView = CustomView(leftImage: UIImage(named: "card"), leftText: "Payment method", rightImage: UIImage(named: "rightArrow"))
-    private let balanceView = CustomView(leftImage: UIImage(named: "card"), leftText: "Balance", rightText: "$ 1593")
-    private let historyView = CustomView(leftImage: UIImage(named: "card"), leftText: "Trade history", rightImage: UIImage(named: "rightArrow"))
-    private let restoreView = CustomView(leftImage: UIImage(named: "circle"), leftText: "Restore Purchase", rightImage: UIImage(named: "rightArrow"))
-    private let helpView = CustomView(leftImage: UIImage(named: "help"), leftText: "Help")
-    private let logOutView = CustomView(leftImage: UIImage(named: "logout"), leftText: "Log out")
+    private let changeProfileButton = AuthButton(
+        type: .change,
+        title: "Change photo")
+    private let userLabel = CustomLabel(
+        text: "Satria Adhi Pradana",
+        alignment: .center,
+        fontSize: 14,
+        weight: .bold,
+        textColor: UIColor(red: 0.247, green: 0.247, blue: 0.247, alpha: 1))
+    private let uploadButton = AuthButton(
+        type: .signIn,
+        title: "Upload item")
+    let uploadImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "upload")!.withRenderingMode(.alwaysOriginal)
+        return imageView
+    }()
+    private let tradeView = CustomView(
+        leftImage: UIImage(named: "card"),
+        leftText: "Trade store",
+        rightImage: UIImage(named: "rightArrow"))
+    private let paymentView = CustomView(
+        leftImage: UIImage(named: "card"),
+        leftText: "Payment method",
+        rightImage: UIImage(named: "rightArrow"))
+    private let balanceView = CustomView(
+        leftImage: UIImage(named: "card"),
+        leftText: "Balance",
+        rightText: "$ 1593")
+    private let historyView = CustomView(
+        leftImage: UIImage(named: "card"),
+        leftText: "Trade history",
+        rightImage: UIImage(named: "rightArrow"))
+    private let restoreView = CustomView(
+        leftImage: UIImage(named: "circle"),
+        leftText: "Restore Purchase",
+        rightImage: UIImage(named: "rightArrow"))
+    private let helpView = CustomView(
+        leftImage: UIImage(named: "help"),
+        leftText: "Help")
+    private let logOutView = CustomView(
+        leftImage: UIImage(named: "logout"),
+        leftText: "Log out")
     private let logOutButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -42,6 +75,7 @@ class ProfileViewController: UIViewController {
     private func setup() {
         view.backgroundColor = UIColor(red: 0.98, green: 0.976, blue: 1, alpha: 1)
         navigationItem.title = "Profile"
+        uploadButton.addSubview(uploadImageView)
         view.addSubview(profileImage)
         view.addSubview(changeProfileButton)
         view.addSubview(userLabel)
@@ -58,7 +92,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func didTapLogOut() {
-//        AuthManager.shared.signOut()
+        AuthManager.shared.signOut()
         viewModel.logOut()
     }
     
@@ -76,6 +110,7 @@ class ProfileViewController: UIViewController {
         helpView.frame = CGRect(x: 32, y: 601, width: 297.5, height: 40)
         logOutView.frame = CGRect(x: 32, y: 661, width: 297.5, height: 40)
         logOutButton.frame = CGRect(x: 80, y: 661, width: 200, height: 40)
+        uploadImageView.frame = CGRect(x: 52, y: (uploadButton.height-12)/2, width: 10, height: 12)
     }
     
 }

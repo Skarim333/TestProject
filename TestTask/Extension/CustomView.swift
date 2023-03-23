@@ -63,7 +63,7 @@ class CustomView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         leftImageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        leftLabel.frame = CGRect(x: leftImageView.right+8, y: (leftImageView.height-14)/2, width: 200, height: 14)
+        leftLabel.frame = CGRect(x: leftImageView.right+8, y: (leftImageView.height-16)/2, width: 200, height: 16)
         rightImageView.frame = CGRect(x: width-6, y: (leftImageView.height-12)/2, width: 6, height: 12)
         rightLabel.frame = CGRect(x: width-50, y: (leftImageView.height-14)/2, width: 50, height: 14)
     }

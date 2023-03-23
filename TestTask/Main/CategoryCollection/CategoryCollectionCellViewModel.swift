@@ -31,10 +31,6 @@ class CategoryCollectionCellViewModel: CategoryCollectionCellViewModelProtocol {
         isSelect
     }
     
-//    func numberOfRowsInSection() -> Int {
-//        CategoryProduct.allCases.count
-//    }
-    
     func didSelectedCell() {
         isSelect.toggle()
         changedViewModel?(self)

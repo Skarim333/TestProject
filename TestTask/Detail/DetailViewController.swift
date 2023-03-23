@@ -8,7 +8,25 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    var viewModel: DetailsViewModelProtocol!
+    
+    var viewModel: DetailsViewModelProtocol! {
+        didSet {
+            viewModel.didLoadDataForDetail = {[weak self] result in
+                DispatchQueue.main.async {
+                    if result {
+                        self?.nameLabel.text = self?.viewModel.name
+                        self?.priceLabel.text = self?.viewModel.price
+                        self?.descriptionLabel.text = self?.viewModel.description
+                        self?.ratingLabel.text = self?.viewModel.rating
+                        self?.reviewsLabel.text = self?.viewModel.numberOfReviews
+                        self?.setBackGroundColor((self?.viewModel.colors))
+                        self?.imageArray = (self?.viewModel.images)!
+                        self?.setupImage()
+                    }
+                }
+            }
+        }
+    }
     
     private let nameLabel = CustomLabel(
         text: "Reebok Classic sneckers",
@@ -17,7 +35,7 @@ class DetailsViewController: UIViewController {
         weight: .semibold,
         textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1),numberOfLines: 2)
     private let priceLabel = CustomLabel(
-        text: "24$",
+        text: "$24",
         alignment: .right,
         fontSize: 12,
         weight: .medium,
@@ -51,7 +69,7 @@ class DetailsViewController: UIViewController {
     private let addToCardView = AddToCardView()
     
     private let imageView = UIView()
-    var photoArray = ["apple", "seller", "profile"]
+//    var photoArray = ["apple", "seller", "profile"]
     var imageArray = [UIImage]()
     var selectedPhotoIndex = 0
     
@@ -66,32 +84,10 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        NetworkManager.shared.fetchShoe { [weak self] result in
-            switch result{
-            case .success(let data):
-                for i in data.imageUrls {
-                    NetworkManager.shared.getImage(from: i) {  image in
-
-                        self?.imageArray.append(image!)
-                    }
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self?.setupImage()
-                }
-                
-                print(data)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        imageView.backgroundColor = .red
+        setupNavigationItem()
         setup()
         setupButton()
         
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        setupImage()
     }
     
     override func viewDidLayoutSubviews() {
@@ -110,7 +106,6 @@ class DetailsViewController: UIViewController {
         
         addToCardView.frame = CGRect(x: 0, y: 640, width: view.width, height: 117)
         imageView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.width, height: 350)
-//        photoScrollView.frame = CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height * 0.6)
     }
     
     private func setup() {
@@ -125,10 +120,27 @@ class DetailsViewController: UIViewController {
         view.addSubview(imageView)
     }
     
+    private func setupNavigationItem() {
+        let image = UIImage(named: "backArrow")!.resized(to: CGSize(width: 6, height: 12))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: image.withTintColor(.black, renderingMode: .alwaysOriginal),
+            style: .done,
+            target: self,
+            action: #selector(tapBack))
+    }
+    
+    @objc func tapBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func setBackGroundColor(_ arr: [String]?) {
+        
+        button1.backgroundColor = UIColor(hex: arr?[0] ?? "#000000")
+        button2.backgroundColor = UIColor(hex: arr?[1] ?? "#000000")
+        button3.backgroundColor = UIColor(hex: arr?[2] ?? "#000000")
+    }
+    
     func setupButton() {
-        button1.backgroundColor = UIColor(hex: "#ffffff")
-        button2.backgroundColor = UIColor(hex: "#b5b5b5")
-        button3.backgroundColor = UIColor(hex: "#000000")
         view.addSubview(button1)
         view.addSubview(button2)
         view.addSubview(button3)
@@ -147,7 +159,6 @@ class DetailsViewController: UIViewController {
         button3.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     @objc func buttonTapped(_ sender: UIButton) {
-           // Determine which button was tapped and change its background color
         button1.setImage(nil, for: .normal)
         button2.setImage(nil, for: .normal)
         button3.setImage(nil, for: .normal)
@@ -167,39 +178,33 @@ class DetailsViewController: UIViewController {
         photoScrollView.delegate = self
         photoScrollView.frame = CGRect(x: 0, y: 0, width: imageView.frame.width, height: 280)
         photoScrollView.isPagingEnabled = true
-        photoScrollView.backgroundColor = .black
         photoScrollView.showsHorizontalScrollIndicator = false
         imageView.addSubview(photoScrollView)
-        // Add photo views to the scroll view
+        print(imageArray.count)
         for i in 0..<imageArray.count {
             let photoView = UIImageView(image: imageArray[i])
             photoView.frame = CGRect(x: CGFloat(i) * photoScrollView.width, y: 0, width: photoScrollView.width, height: photoScrollView.height)
             photoView.contentMode = .scaleAspectFit
-            photoView.backgroundColor = .yellow
+            let sharedView = SharedView()
+            sharedView.frame = CGRect(x: 300, y: 156, width: 42, height: 95)
+            photoView.addSubview(sharedView)
             photoScrollView.addSubview(photoView)
             
         }
-        // Set content size of scroll view
-        photoScrollView.contentSize = CGSize(width: photoScrollView.width * CGFloat(photoArray.count), height: photoScrollView.height)
         
-        // Configure photo selection view
+        photoScrollView.contentSize = CGSize(width: photoScrollView.width * CGFloat(imageArray.count), height: photoScrollView.height)
+        
         photoSelectionView.frame = CGRect(x: (imageView.width-225)/2, y: photoScrollView.frame.maxY, width: 225, height: imageView.frame.height * 0.2)
-        photoSelectionView.backgroundColor = .purple
         imageView.addSubview(photoSelectionView)
         
-        // Add selection views to photo selection view
         for i in 0..<imageArray.count {
             let selectionView = UIView(frame: CGRect(x: (photoSelectionView.width/3) * CGFloat(i), y: photoSelectionView.height-37, width: photoSelectionView.frame.size.width/3-10, height: 37))
             selectionView.backgroundColor = UIColor.clear
-//            selectionView.layer.borderWidth = 2
-//            selectionView.layer.borderColor = UIColor.gray.cgColor
             selectionView.tag = i
-            let photoViewa = UIImageView(image: imageArray[i])
-            photoViewa.frame = selectionView.bounds
-            photoViewa.contentMode = .scaleAspectFit
-            photoViewa.backgroundColor = .green
-            selectionView.addSubview(photoViewa)
-//            photoSelectionView.addSubview(photoViewa)
+            let photoViewA = UIImageView(image: imageArray[i])
+            photoViewA.frame = selectionView.bounds
+            photoViewA.contentMode = .scaleAspectFill
+            selectionView.addSubview(photoViewA)
             photoSelectionView.addSubview(selectionView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)))
@@ -215,8 +220,6 @@ class DetailsViewController: UIViewController {
     @objc func selectPhoto(_ sender: UITapGestureRecognizer) {
         let selectedView = sender.view!
         selectedPhotoIndex = selectedView.tag
-        
-        // Update selection view highlighting
         for subview in photoSelectionView.subviews
         {
             if subview.tag == selectedPhotoIndex {
@@ -226,9 +229,7 @@ class DetailsViewController: UIViewController {
             }
         }
         
-        productImageView.image = UIImage(named: photoArray[selectedPhotoIndex])
-        
-        // Update photo scroll view content offset
+        productImageView.image = imageArray[selectedPhotoIndex]
         photoScrollView.setContentOffset(CGPoint(x: photoScrollView.frame.size.width * CGFloat(selectedPhotoIndex), y: 0), animated: true)
     }
 }
@@ -238,7 +239,6 @@ extension DetailsViewController: UIScrollViewDelegate{
         let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         selectedPhotoIndex = currentPage
         
-        // Update selection view highlighting
         for subview in photoSelectionView.subviews {
             if subview.tag == currentPage {
                 subview.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -246,9 +246,7 @@ extension DetailsViewController: UIScrollViewDelegate{
                 subview.transform = CGAffineTransform.identity
             }
         }
-        
-        // Update product image view
-        productImageView.image = UIImage(named: photoArray[currentPage])
+        productImageView.image = imageArray[currentPage]
     }
 }
 

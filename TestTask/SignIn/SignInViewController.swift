@@ -57,17 +57,17 @@ final class SignInViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        titleLabel.frame = CGRect(x: 142.7, y: 155.93, width: 87.52, height: 28)
+        titleLabel.frame = CGRect(x: (view.width-94)/2, y: 155.93, width: 94, height: 28)
         firstNameField.frame = CGRect(x: 44, y: 259, width: 289, height: 29)
         lastNameField.frame = CGRect(x: 44, y: 323, width: 289, height: 29)
         emailField.frame = CGRect(x: 44, y: 387, width: 289, height: 29)
         signInButton.frame = CGRect(x: 43, y: 451, width: 289, height: 46)
-        logInButton.frame = CGRect(x: 173.6, y: 514, width: 28, height: 10)
+        logInButton.frame = CGRect(x: 173.6, y: 514, width: 30, height: 10)
         loginLabel.frame = CGRect(x: 42, y: 514, width: 123, height: 10)
         googleImage.frame = CGRect(x: 99, y: 598, width: 23.83, height: 24.22)
         appleImage.frame = CGRect(x: 99, y: 660, width: 18.38, height: 21.87)
-        googleButton.frame = CGRect(x: 134.49, y: 606.92, width: 112.82, height: 11.48)
-        appleButton.frame = CGRect(x: 131.49, y: 667.14, width: 105.47, height: 11.48)
+        googleButton.frame = CGRect(x: 134.49, y: 606.92, width: 120, height: 11.48)
+        appleButton.frame = CGRect(x: 131.49, y: 667.14, width: 113, height: 11.48)
     }
     
     func configureFields() {
