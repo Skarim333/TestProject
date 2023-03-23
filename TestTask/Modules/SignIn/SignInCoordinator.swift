@@ -28,7 +28,7 @@ final class SignInCoordinator: Coordinator {
         navigationController.isNavigationBarHidden = false
     }
     
-    func startLognInScene() {
+    func startLogInScene() {
         let logInCoordinator = LogInCoordinator(navigationController: navigationController)
         logInCoordinator.parentCoordinator = self
         childCoordinators.append(logInCoordinator)
@@ -39,15 +39,17 @@ final class SignInCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func didFinishDetailScene() {
+    func didFinishSignInScene() {
         navigationController.popViewController(animated: true)
     }
     
-    func didFinishLoggingIn() {
-        parentCoordinator?.childDidFinish(self)
-        navigationController.setNavigationBarHidden(true, animated: true)
-        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
-        parentCoordinator?.childCoordinators.append(tabBarCoordinator)
-        tabBarCoordinator.start()
+    func didFinishSignIn() {
+        if let appCoordinator = parentCoordinator {
+            appCoordinator.childCoordinators.removeAll()
+            appCoordinator.start()
+        } else {
+            parentCoordinator?.childDidFinish(self)
+        }
+        
     }
 }

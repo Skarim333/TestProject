@@ -18,10 +18,10 @@ class SignInViewModel: SignInViewModelProtocol {
     var coordinator: SignInCoordinator?
     
     func pushLoginView() {
-        coordinator?.startLognInScene()
+        coordinator?.startLogInScene()
     }
     
     func  pushMainView() {
-        coordinator?.didFinishLoggingIn()
+        coordinator?.didFinishSignIn()
     }
 }

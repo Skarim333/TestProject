@@ -32,11 +32,11 @@ final class LogInCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func didFinishDetailScene() {
+    func didFinishLogInScene() {
         navigationController.popViewController(animated: true)
     }
  
-    func didFinishLoggingIn() {
+    func didFinishLogIn() {
         if let sigInCoordinator = parentCoordinator {
             if let appCoordinator = sigInCoordinator.parentCoordinator {
                 appCoordinator.childCoordinators.removeAll()

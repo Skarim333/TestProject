@@ -15,6 +15,6 @@ class LogInViewModel: LogInViewModelProtocol {
     var coordinator: LogInCoordinator?
     
     func pushMainView(){
-        coordinator?.didFinishLoggingIn()
+        coordinator?.didFinishLogIn()
     }
 }
