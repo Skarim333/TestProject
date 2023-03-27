@@ -9,25 +9,14 @@ import UIKit
 
 protocol DetailsViewModelProtocol {
     var didLoadDataForDetail: ((Bool) -> Void)? { get set }
-    var name: String {
-        get
-    }
-    var description: String {
-        get
-    }
-    var rating: String {
-        get
-    }
-    var numberOfReviews: String {
-        get
-    }
-    var price: String {
-        get
-    }
-    var colors: [String] {
-        get
-    }
+    var name: String { get }
+    var description: String { get }
+    var rating: String { get }
+    var numberOfReviews: String { get}
+    var price: String { get}
+    var colors: [String] { get}
     var images: [UIImage] { get }
+    var itemCount: String { get }
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
@@ -35,6 +24,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
     private var didLoadDetailData: ((Bool) -> Void)?
     private var model: Shoe?
     var images = [UIImage]()
+    var item = 0
     
     required init() {
         fetchData() 
@@ -67,13 +57,17 @@ class DetailsViewModel: DetailsViewModelProtocol {
         "(\(model?.numberOfReviews ?? 0) reviews"
     }
     var price: String {
-        String(format: "%.2f", model?.price ?? 0).replacingOccurrences(of: ".", with: ",")
+        "$ " + String(format: "%.2f", model?.price ?? 0).replacingOccurrences(of: ".", with: ",")
     }
     var colors: [String] {
         model?.colors ?? [String]()
     }
     var imageUrls: [URL] {
         model?.imageUrls ?? [URL]()
+    }
+    
+    var itemCount: String {
+       ""
     }
     
     func loadImageData(completion: @escaping () -> Void) {

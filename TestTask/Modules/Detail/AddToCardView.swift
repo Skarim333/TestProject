@@ -9,12 +9,22 @@ import UIKit
 
 class AddToCardView: UIView {
     
+    private var itemCount = 1
+    private lazy var sessionManager = SessionManager.shared
+    
     private let label = CustomLabel(
         text: "Quantity",
         alignment: .left,
         fontSize: 9,
         weight: .medium,
         textColor: UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1))
+    
+    lazy var countLabel = CustomLabel(
+        text: "",
+        alignment: .left,
+        fontSize: 11,
+        weight: .bold,
+        textColor: .white)
     
     private let plusButton: UIButton = {
         let button = UIButton()
@@ -67,13 +77,40 @@ class AddToCardView: UIView {
         addSubview(plusButton)
         addSubview(minusButton)
         addSubview(addCardButton)
+        addSubview(countLabel)
         clipsToBounds = true
         layer.cornerRadius = 30
+        plusButton.addTarget(self, action: #selector(didTapPlus), for: .touchUpInside)
+        minusButton.addTarget(self, action: #selector(didTapMinus), for: .touchUpInside)
+        countLabel.text = String(itemCount)
+    }
+    
+    @objc func didTapPlus() {
+        itemCount += 1
+        do {
+            try sessionManager.updateUserCountProducts(countProducts: itemCount)
+        } catch {
+            print("Error updating user count products: \(error)")
+        }
+        countLabel.text = String(itemCount)
+    }
+    
+    @objc func didTapMinus() {
+        if itemCount > 1 {
+            itemCount -= 1
+            do {
+                try sessionManager.updateUserCountProducts(countProducts: itemCount)
+            } catch {
+                print("Error updating user count products: \(error)")
+            }
+        }
+        countLabel.text = String(itemCount)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         label.frame = CGRect(x: 24, y: 17, width: 42, height: 10)
+        countLabel.frame = CGRect(x: label.right+10, y: label.top/2+7, width: 20, height: 14)
         minusButton.frame = CGRect(x: 24, y: 38, width: 38, height: 22)
         plusButton.frame = CGRect(x: minusButton.right+20, y: 38, width: 38, height: 22)
         addCardButton.frame = CGRect(x: 182, y: 19, width: 170, height: 44)

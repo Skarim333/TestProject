@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
         button.backgroundColor = .clear
         return button
     }()
-    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,11 +89,18 @@ class ProfileViewController: UIViewController {
         view.addSubview(logOutView)
         view.addSubview(logOutButton)
         logOutButton.addTarget(self, action: #selector(didTapLogOut), for: .touchUpInside)
+        changeProfileButton.addTarget(self, action: #selector(didTapChangePhoto), for: .touchUpInside)
     }
     
     @objc func didTapLogOut() {
         AuthManager.shared.signOut()
         viewModel.logOut()
+    }
+    
+    @objc func didTapChangePhoto() {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -113,4 +120,22 @@ class ProfileViewController: UIViewController {
         uploadImageView.frame = CGRect(x: 52, y: (uploadButton.height-12)/2, width: 10, height: 12)
     }
     
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let selectedImage = info[.originalImage] as? UIImage {
+            profileImage.image = selectedImage
+            profileImage.clipsToBounds = true
+            profileImage.layer.cornerRadius = profileImage.height/2
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

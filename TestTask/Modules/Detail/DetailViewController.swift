@@ -7,7 +7,11 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, SharedViewDelegate {
+    func sharedViewDidTapButton(_ sharedView: SharedView) {
+        
+    }
+    
     
     var viewModel: DetailsViewModelProtocol! {
         didSet {
@@ -32,13 +36,13 @@ class DetailsViewController: UIViewController {
         text: "Reebok Classic sneckers",
         alignment: .natural,
         fontSize: 14,
-        weight: .semibold,
+        weight: .bold,
         textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1),numberOfLines: 2)
     private let priceLabel = CustomLabel(
         text: "$24",
-        alignment: .right,
+        alignment: .left,
         fontSize: 12,
-        weight: .medium,
+        weight: .bold,
         textColor: UIColor(red: 0.086, green: 0.094, blue: 0.149, alpha: 1))
     private let descriptionLabel = CustomLabel(
         text: "Shoes inspired by 80s running shoes are still relevant today",
@@ -66,10 +70,12 @@ class DetailsViewController: UIViewController {
         textColor: UIColor(red: 0.451, green: 0.451, blue: 0.451, alpha: 1))
     private let starImageView = UIImageView(image: UIImage(named: "star"))
     
+    
     private let addToCardView = AddToCardView()
     
+    let sharedView = SharedView()
+    
     private let imageView = UIView()
-//    var photoArray = ["apple", "seller", "profile"]
     var imageArray = [UIImage]()
     var selectedPhotoIndex = 0
     
@@ -93,7 +99,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         nameLabel.frame = CGRect(x: 25, y: 456, width: 108, height: 39)
-        priceLabel.frame = CGRect(x: view.width-68, y: 457, width: 44, height: 12)
+        priceLabel.frame = CGRect(x: view.width-68, y: 457, width: 55, height: 12)
         descriptionLabel.frame = CGRect(x: 25, y: 511, width: 194, height: 23.5)
         starImageView.frame = CGRect(x: 24, y: 548, width: 10, height: 10)
         ratingLabel.frame = CGRect(x: starImageView.right+4, y: 548, width: 15, height: 10)
@@ -106,6 +112,7 @@ class DetailsViewController: UIViewController {
         
         addToCardView.frame = CGRect(x: 0, y: 640, width: view.width, height: 117)
         imageView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.width, height: 350)
+        sharedView.frame = CGRect(x: 300, y: 225, width: 42, height: 95)
     }
     
     private func setup() {
@@ -118,6 +125,8 @@ class DetailsViewController: UIViewController {
         view.addSubview(starImageView)
         view.addSubview(addToCardView)
         view.addSubview(imageView)
+        view.addSubview(sharedView)
+        sharedView.addTargetButton(target: self, sharedSelector: #selector(didTapShared), addSelector: #selector(didTapShared))
     }
     
     private func setupNavigationItem() {
@@ -185,12 +194,9 @@ class DetailsViewController: UIViewController {
             let photoView = UIImageView(image: imageArray[i])
             photoView.frame = CGRect(x: CGFloat(i) * photoScrollView.width, y: 0, width: photoScrollView.width, height: photoScrollView.height)
             photoView.contentMode = .scaleAspectFit
-            let sharedView = SharedView()
-            sharedView.frame = CGRect(x: 300, y: 156, width: 42, height: 95)
-            photoView.addSubview(sharedView)
             photoScrollView.addSubview(photoView)
-            
         }
+        
         
         photoScrollView.contentSize = CGSize(width: photoScrollView.width * CGFloat(imageArray.count), height: photoScrollView.height)
         
@@ -214,6 +220,21 @@ class DetailsViewController: UIViewController {
                 selectionView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }
         }
+    }
+    @objc func didTapShared() {
+        let shareText = "Check out this product!"
+        let shareURL = URL(string: "https://run.mocky.io/v3/f7f99d04-4971-45d5-92e0-70333383c239")!
+        let activityViewController = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: nil)
+
+        activityViewController.excludedActivityTypes = [.addToReadingList, .assignToContact]
+
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        present(activityViewController, animated: true, completion: nil)
+
     }
    
     

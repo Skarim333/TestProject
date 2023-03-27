@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SharedViewDelegate: AnyObject {
+    func sharedViewDidTapButton(_ sharedView: SharedView)
+}
+
 class SharedView: UIView {
+    
+    weak var delegate: SharedViewDelegate?
     
     private let addButton: UIButton = {
         let button = UIButton()
@@ -22,7 +28,7 @@ class SharedView: UIView {
         return imageView
     }()
     
-    private let sharedButton: UIButton = {
+    let sharedButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "hz"), for: .normal)
         return button
@@ -31,11 +37,28 @@ class SharedView: UIView {
     override init(frame: CGRect) {
         super .init(frame: frame)
         backgroundColor = UIColor(hex: "#E5E9EF")
+        
         addSubview(addButton)
         addSubview(slashImageView)
         addSubview(sharedButton)
         clipsToBounds = true
         layer.cornerRadius = 15
+        sharedButton.addTarget(self, action: #selector(didTapShared), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+    }
+    
+    @objc func didTapShared() {
+            delegate?.sharedViewDidTapButton(self)
+        }
+
+    @objc func didTapAdd() {
+        print("add")
+    }
+    
+    func addTargetButton(target: Any?, sharedSelector: Selector, addSelector: Selector) {
+        
+        sharedButton.addTarget(target, action: sharedSelector, for: .touchUpInside)
+        addButton.addTarget(target, action: addSelector, for: .touchUpInside)
     }
     
     override func layoutSubviews() {

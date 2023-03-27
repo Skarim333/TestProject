@@ -22,9 +22,9 @@ class DatabaseManager {
             case activeUser
         }
     
-    func saveUser(firstName: String, lastName: String, email: String, password: String) {
+    func saveUser(firstName: String, lastName: String, email: String, password: String, countProducts: Int? = nil) {
         var users = loadUsers()
-        let user = User(firstName: firstName, lastName: lastName, email: email, password: password)
+        let user = User(firstName: firstName, lastName: lastName, email: email, password: password, countProducts: countProducts)
         users.append(user)
         saveUsers(users)
     }
