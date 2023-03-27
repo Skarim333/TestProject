@@ -5,7 +5,7 @@
 //  Created by Карим Садыков on 12.03.2023.
 //
 
-import UIKit
+import Foundation
 
 protocol MainViewModelProtocol: AnyObject {
     

@@ -56,5 +56,6 @@ class LatestCollectionCellViewModel: LatestCollectionCellViewModelProtocol {
     
     func addCart() {
         print("ADD")
+        
     }
 }

@@ -40,4 +40,27 @@ class SessionManager {
         }
         UserDefaults.standard.removeObject(forKey: "currentUserFirstName")
     }
+    
+    func updateUserCountProducts(countProducts: Int) throws {
+        guard let firstName = currentUserFirstName else {
+            throw AuthError.invalidInput
+        }
+        guard var user = databaseManager.findUserByFirstName(firstName) else {
+            throw AuthError.userNotFound
+        }
+        user.countProducts = countProducts
+        databaseManager.saveUser(firstName: user.firstName, lastName: user.lastName, email: user.email, password: user.password, countProducts: user.countProducts)
+    }
+    
+    func getCurrentUserCountProducts() throws -> Int {
+        guard let firstName = currentUserFirstName else {
+            throw AuthError.invalidInput
+        }
+        guard let user = databaseManager.findUserByFirstName(firstName) else {
+            throw AuthError.userNotFound
+        }
+        return user.countProducts ?? 0
+    }
 }
+
+
